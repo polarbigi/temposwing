@@ -299,41 +299,181 @@ img { max-width: 100%; height: auto; display:block; }
   50% { transform: translateY(-15px); }
 }
 
-/* Product badge - glass style */
+/* Product badge - PREMIUM GLASS STYLE */
 .hero-badge { 
   position: absolute; 
   bottom: 0%;
   right: 45%;
-  background: rgba(0,0,0,0.7);
+  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(20,20,20,0.9) 100%);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  padding: 18px 50px; 
-  border: 2px solid var(--gold);
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(248,184,48,0.2);
+  padding: 18px 45px; 
+  border: 2px solid transparent;
+  border-radius: 10px;
+  box-shadow: 
+    0 25px 50px rgba(0,0,0,0.5),
+    0 0 30px rgba(248,184,48,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    inset 0 -1px 0 rgba(0,0,0,0.3);
   z-index: 10;
   text-align: center;
-  animation: badge-pulse 3s ease-in-out infinite;
+  overflow: hidden;
 }
 
-@keyframes badge-pulse {
-  0%, 100% { box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 20px rgba(248,184,48,0.2); }
-  50% { box-shadow: 0 10px 40px rgba(0,0,0,0.4), 0 0 40px rgba(248,184,48,0.5); }
+/* Animated gradient border */
+.hero-badge::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--gold), #FFD700, var(--gold), #FFA500, var(--gold));
+  background-size: 400% 400%;
+  border-radius: 14px;
+  z-index: -1;
+  animation: gradient-border 3s ease infinite;
 }
+@keyframes gradient-border {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Inner background to show border */
+.hero-badge::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
+  border-radius: 10px;
+  z-index: -1;
+}
+
+/* Shine sweep effect */
+.badge-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: badge-shine-sweep 3s ease-in-out infinite;
+  z-index: 1;
+}
+@keyframes badge-shine-sweep {
+  0% { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+/* Main ratio number */
 .hero-badge-title { 
   font-family: var(--font-display); 
-  font-size: 2.5rem; 
+  font-size: 3rem; 
   font-weight: 700; 
   color: var(--gold); 
   line-height: 1;
-  text-shadow: 0 0 15px rgba(248,184,48,0.4);
+  text-shadow: 
+    0 0 20px rgba(248,184,48,0.8),
+    0 0 40px rgba(248,184,48,0.4),
+    0 0 60px rgba(248,184,48,0.2);
+  position: relative;
+  z-index: 2;
+  animation: number-glow 2s ease-in-out infinite;
 }
+@keyframes number-glow {
+  0%, 100% { 
+    text-shadow: 
+      0 0 20px rgba(248,184,48,0.8),
+      0 0 40px rgba(248,184,48,0.4),
+      0 0 60px rgba(248,184,48,0.2);
+    transform: scale(1);
+  }
+  50% { 
+    text-shadow: 
+      0 0 30px rgba(248,184,48,1),
+      0 0 60px rgba(248,184,48,0.6),
+      0 0 90px rgba(248,184,48,0.4);
+    transform: scale(1.02);
+  }
+}
+
+/* Decorative elements around the number */
+.badge-decoration {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+.badge-decoration::before,
+.badge-decoration::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gold);
+  opacity: 0.5;
+}
+.badge-decoration::before {
+  top: 12px;
+  left: 12px;
+  border-right: none;
+  border-bottom: none;
+}
+.badge-decoration::after {
+  bottom: 12px;
+  right: 12px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Subtitle text */
 .hero-badge-text { 
-  font-size: 0.7rem; 
-  color: rgba(255,255,255,0.8); 
+  font-size: 0.6rem; 
+  color: rgba(255,255,255,0.9); 
   text-transform: uppercase; 
-  letter-spacing: 2px; 
-  margin-top: 5px;
+  letter-spacing: 3px; 
+  margin-top: 6px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Small label above number */
+.badge-label {
+  font-size: 0.6rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 2;
+  opacity: 0.8;
+}
+
+/* Pulsing ring effect */
+.badge-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: 0;
+  animation: ring-pulse 2s ease-out infinite;
+}
+.badge-ring:nth-child(2) { animation-delay: 0.5s; }
+.badge-ring:nth-child(3) { animation-delay: 1s; }
+@keyframes ring-pulse {
+  0% { width: 60%; height: 60%; opacity: 0.5; }
+  100% { width: 150%; height: 150%; opacity: 0; }
 }
 
 /* =========================
@@ -479,7 +619,221 @@ img { max-width: 100%; height: auto; display:block; }
 .footer-legal a { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-left: 20px; }
 .footer-legal a:hover { color: var(--gold); }
 
-/* Anim helpers */
+/* =========================
+   COOL EFFECTS & ANIMATIONS
+   ========================= */
+
+/* Magnetic button effect */
+.btn-gold, .btn-outline-gold, .btn-dark-custom {
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold::after, .btn-outline-gold::after, .btn-dark-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+.btn-gold:hover::after, .btn-outline-gold:hover::after, .btn-dark-custom:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Parallax tilt on service cards */
+.service-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Glowing border on focus/hover for cards */
+.service-card:hover {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 30px rgba(248,184,48,0.15);
+}
+
+/* Animated gradient text for section labels */
+.section-label {
+  background: linear-gradient(90deg, var(--gold), #FFD700, var(--gold));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 3s ease infinite;
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 200% center; }
+}
+
+/* Staggered fade-in for feature numbers */
+.feature-item:nth-child(1) .feature-number { animation-delay: 0s; }
+.feature-item:nth-child(2) .feature-number { animation-delay: 0.2s; }
+.feature-item:nth-child(3) .feature-number { animation-delay: 0.4s; }
+.feature-number {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
+@keyframes pulse-gold {
+  0%, 100% { text-shadow: 0 0 0 rgba(248,184,48,0); }
+  50% { text-shadow: 0 0 30px rgba(248,184,48,0.5); }
+}
+
+/* Hover lift for testimonial cards */
+.testimonial-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.testimonial-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Animated stats counter glow */
+.stat-number {
+  text-shadow: 0 0 20px rgba(248,184,48,0.3);
+  transition: text-shadow 0.3s;
+}
+.stat-item:hover .stat-number {
+  text-shadow: 0 0 40px rgba(248,184,48,0.8);
+}
+
+/* Gallery item shine effect */
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+  transform: skewX(-25deg);
+  z-index: 2;
+  transition: left 0.7s;
+}
+.gallery-item:hover::before {
+  left: 125%;
+}
+
+/* Scroll progress indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), #FFD700);
+  z-index: 9999;
+  transition: width 0.1s;
+}
+
+/* Process step connector line */
+.process-step::after {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 60px;
+  width: 2px;
+  height: calc(100% + 35px);
+  background: linear-gradient(to bottom, var(--gold), transparent);
+}
+.process-step:last-child::after {
+  display: none;
+}
+
+/* Animated underline for nav links */
+.nav-link-custom {
+  position: relative;
+}
+.nav-link-custom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: all 0.3s;
+  transform: translateX(-50%);
+}
+.nav-link-custom:hover::after {
+  width: 80%;
+}
+
+/* CTA section animated background */
+.cta-section {
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0,0,0,0.03) 10px,
+    rgba(0,0,0,0.03) 20px
+  );
+  animation: slide-bg 20s linear infinite;
+}
+@keyframes slide-bg {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+/* Logo hover effect */
+.logo-img {
+  transition: transform 0.3s, filter 0.3s;
+}
+.logo-img:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 10px rgba(248,184,48,0.5));
+}
+
+/* Social icons bounce */
+.footer-socials a {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.footer-socials a:hover {
+  transform: translateY(-5px) scale(1.1);
+}
+
+/* Smooth reveal for sections */
+.fade-up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero badge bounce on load */
+.hero-badge {
+  animation: badge-pulse 3s ease-in-out infinite, badge-bounce 1s ease-out;
+}
+@keyframes badge-bounce {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Stat label slide up */
+.stat-item:hover .stat-label {
+  transform: translateY(-3px);
+  color: rgba(255,255,255,0.9);
+}
+.stat-label {
+  transition: all 0.3s;
+}
+
 .fade-up { opacity: 0; transform: translateY(40px); transition: all 0.7s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
@@ -578,12 +932,17 @@ img { max-width: 100%; height: auto; display:block; }
     bottom: auto;
     right: auto;
     margin: -20px auto 0;
-    padding: 10px 25px;
+    padding: 20px 40px;
     width: fit-content;
     transform: translateX(-50px) translateY(-35px);
   }
-  .hero-badge-title { font-size: 1.5rem; }
-  .hero-badge-text { font-size: 0.6rem; letter-spacing: 1px; }
+  .hero-badge-title { font-size: 2.5rem; }
+  .hero-badge-text { font-size: 0.55rem; letter-spacing: 2px; }
+  .badge-label { font-size: 0.5rem; }
+  .badge-decoration::before,
+  .badge-decoration::after { width: 20px; height: 20px; }
+  .badge-decoration::before { top: 10px; left: 10px; }
+  .badge-decoration::after { bottom: 10px; right: 10px; }
   
   /* TEMPO headline - left aligned */
   .hero-tempo { 
@@ -713,6 +1072,9 @@ img { max-width: 100%; height: auto; display:block; }
     </style>
 </head>
 <body class="carbon-bg">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
     <header class="main-header">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
@@ -770,6 +1132,12 @@ img { max-width: 100%; height: auto; display:block; }
                             <img src="product.01.png" alt="Tempo Swing Golf Training Aid" class="hero-product-img">
                         </div>
                         <div class="hero-badge">
+                            <div class="badge-ring"></div>
+                            <div class="badge-ring"></div>
+                            <div class="badge-ring"></div>
+                            <div class="badge-shine"></div>
+                            <div class="badge-decoration"></div>
+                            <div class="badge-label">Tour Pro</div>
                             <div class="hero-badge-title">3:1</div>
                             <div class="hero-badge-text">Perfect Tempo Ratio</div>
                         </div>
@@ -1129,6 +1497,38 @@ img { max-width: 100%; height: auto; display:block; }
             }
             $(window).on('scroll', animateCounters);
             animateCounters();
+
+            // Scroll Progress Bar
+            $(window).on('scroll', function() {
+                var scrollTop = $(this).scrollTop();
+                var docHeight = $(document).height() - $(window).height();
+                var scrollPercent = (scrollTop / docHeight) * 100;
+                $('#scrollProgress').css('width', scrollPercent + '%');
+            });
+
+            // Tilt effect on service cards
+            $('.service-card').on('mousemove', function(e) {
+                var rect = this.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+                var centerX = rect.width / 2;
+                var centerY = rect.height / 2;
+                var rotateX = (y - centerY) / 20;
+                var rotateY = (centerX - x) / 20;
+                $(this).css('transform', 'translateY(-10px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)');
+            }).on('mouseleave', function() {
+                $(this).css('transform', 'translateY(0) rotateX(0) rotateY(0)');
+            });
+
+            // Magnetic button effect
+            $('.btn-gold, .btn-outline-gold, .btn-dark-custom').on('mousemove', function(e) {
+                var rect = this.getBoundingClientRect();
+                var x = e.clientX - rect.left - rect.width / 2;
+                var y = e.clientY - rect.top - rect.height / 2;
+                $(this).css('transform', 'translate(' + x * 0.1 + 'px, ' + y * 0.1 + 'px)');
+            }).on('mouseleave', function() {
+                $(this).css('transform', 'translate(0, 0)');
+            });
 
             // Dynamic mailto links with date/time and lead type
             $('.mailto-link').on('click', function(e) {
