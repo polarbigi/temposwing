@@ -39,6 +39,22 @@
   --white: #FFFFFF;
   --gray: #9A9A9A;
   --light-gray: #F4F4F4;
+
+  /* =========================
+     IMAGE VARIABLES - EASY TO REPLACE
+     ========================= */
+  --img-logo: url('logo.png');
+  --img-product: url('product.01.png');
+  --img-process-bg: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800');
+  --img-process: url('https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=600&h=750&fit=crop');
+  --img-gallery-1: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=800&fit=crop');
+  --img-gallery-2: url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=400&h=400&fit=crop');
+  --img-gallery-3: url('https://images.unsplash.com/photo-1592919505780-303950717480?w=400&h=400&fit=crop');
+  --img-gallery-4: url('https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=400&h=400&fit=crop');
+  --img-gallery-5: url('https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=400&h=400&fit=crop');
+  --img-avatar-1: url('https://randomuser.me/api/portraits/men/32.jpg');
+  --img-avatar-2: url('https://randomuser.me/api/portraits/men/45.jpg');
+  --img-avatar-3: url('https://randomuser.me/api/portraits/women/44.jpg');
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -287,7 +303,7 @@ img { max-width: 100%; height: auto; display:block; }
 .hero-badge { 
   position: absolute; 
   bottom: 0%;
-  right: 30%;
+  right: 45%;
   background: rgba(0,0,0,0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -379,16 +395,14 @@ img { max-width: 100%; height: auto; display:block; }
 .services-section { padding: 50px 0; background: var(--light-gray); color: var(--black); }
 .service-card { padding: 40px 30px; background: var(--white); border: none; transition: all 0.4s ease; height: 100%; position: relative; overflow: hidden; box-shadow: 0 5px 30px rgba(0,0,0,0.05); }
 .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
-.service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
+.service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); background: var(--dark); color: var(--white); }
 .service-card:hover::before { transform: scaleX(1); }
-.service-card.featured { background: var(--dark); color: var(--white); }
-.service-card.featured::before { background: var(--gold); transform: scaleX(1); }
-.service-icon { width: 70px; height: 70px; background: rgba(248,184,48,0.10); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; font-size: 1.75rem; color: var(--gold); }
-.service-card.featured .service-icon { background: rgba(248,184,48,0.20); }
-.service-title { font-size: 1.35rem; margin-bottom: 15px; color: var(--black); }
-.service-text { color: #5a5a5a; margin-bottom: 0; font-size: 0.95rem; }
-.service-card.featured .service-title { color: var(--white); }
-.service-card.featured .service-text { color: rgba(255,255,255,0.7); }
+.service-card:hover .service-icon { background: rgba(248,184,48,0.20); }
+.service-card:hover .service-title { color: var(--white); }
+.service-card:hover .service-text { color: rgba(255,255,255,0.7); }
+.service-icon { width: 70px; height: 70px; background: rgba(248,184,48,0.10); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; font-size: 1.75rem; color: var(--gold); transition: all 0.4s ease; }
+.service-title { font-size: 1.35rem; margin-bottom: 15px; color: var(--black); transition: all 0.4s ease; }
+.service-text { color: #5a5a5a; margin-bottom: 0; font-size: 0.95rem; transition: all 0.4s ease; }
 
 .features-section { padding: 50px 0; background: var(--white); color: var(--black); }
 .feature-item { text-align: center; padding: 30px 20px; }
@@ -398,7 +412,7 @@ img { max-width: 100%; height: auto; display:block; }
 .feature-text { color: #4a4a4a; font-size: 0.9rem; }
 
 .process-section { background: var(--darker); color: var(--white); padding: 50px 0; position: relative; overflow: hidden; }
-.process-section::before { content: ''; position: absolute; right: 0; top: 0; width: 50%; height: 100%; background: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800') center/cover no-repeat; opacity: 0.15; }
+.process-section::before { content: ''; position: absolute; right: 0; top: 0; width: 50%; height: 100%; background: var(--img-process-bg) center/cover no-repeat; opacity: 0.15; }
 .process-title { font-size: 3rem; margin-bottom: 1rem; }
 .process-subtitle { color: rgba(255,255,255,0.6); margin-bottom: 3rem; font-size: 1.1rem; }
 .process-step { display: flex; gap: 25px; margin-bottom: 35px; position: relative; }
@@ -425,6 +439,9 @@ img { max-width: 100%; height: auto; display:block; }
 .testimonial-quote { font-size: 1.15rem; font-style: italic; margin-bottom: 25px; line-height: 1.8; position: relative; z-index: 1; color: #333; }
 .testimonial-author { display: flex; align-items: center; gap: 15px; }
 .testimonial-avatar { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
+.testimonial-avatar-1 { background: var(--img-avatar-1) center/cover no-repeat; }
+.testimonial-avatar-2 { background: var(--img-avatar-2) center/cover no-repeat; }
+.testimonial-avatar-3 { background: var(--img-avatar-3) center/cover no-repeat; }
 .testimonial-name { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 2px; color: var(--black); }
 .testimonial-role { font-size: 0.85rem; color: #666; }
 .testimonial-stars { color: var(--gold); margin-bottom: 15px; }
@@ -467,29 +484,217 @@ img { max-width: 100%; height: auto; display:block; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
 /* Responsive */
+/* =========================
+   RESPONSIVE - TABLET & MOBILE
+   ========================= */
 @media (max-width: 991px) {
-  .hero-title { font-size: 2.75rem; }
-  .hero-image-wrapper::before { width: 280px; height: 280px; }
-  .hero-product-img { max-height: 400px; }
-  .section-title { font-size: 2.25rem; }
-  .process-title { font-size: 2.25rem; }
-  .cta-title { font-size: 2.25rem; }
-}
-@media (max-width: 767px) {
-  .hero { text-align: center; padding-top: 100px; }
-  .hero-subtitle { margin-left: auto; margin-right: auto; }
-  .hero-cta { justify-content: center; }
-  .hero-image { margin-top: 50px; }
-  .hero-badge { display: none; }
-  .stat-number { font-size: 3rem; }
-  .process-step { flex-direction: column; text-align: center; align-items: center; }
+  /* Hero - Side by side layout: text left, product right */
+  .hero { 
+    text-align: left; 
+    padding-top: 160px; 
+    padding-bottom: 40px;
+    min-height: auto;
+  }
+  
+  /* Keep diagonal but adjust for mobile */
+  .hero::before {
+    clip-path: polygon(40% 0, 100% 0, 100% 100%, 15% 100%);
+    width: 60%;
+  }
+  
+  .hero::after { display: none; }
+  
+  /* Side by side row */
+  .hero .row { 
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  
+  .hero .col-lg-6:first-child {
+    flex: 0 0 55%;
+    max-width: 55%;
+    padding-right: 0;
+  }
+  
+  .hero .col-lg-6:last-child {
+    flex: 0 0 45%;
+    max-width: 45%;
+    padding-left: 0;
+  }
+  
+  .hero-subtitle { 
+    font-size: 0.85rem;
+    padding: 0;
+    margin-bottom: 1.25rem;
+  }
+  
+  .hero-cta { 
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .hero-cta .btn { 
+    padding: 10px 20px;
+    font-size: 0.75rem;
+  }
+  
+  .hero-image { margin-top: 0; }
+  
+  /* Product image floated right */
+  .hero-image-wrapper { 
+    transform: translateX(-50px) translateY(-35px);
+    padding: 0;
+  }
+  
+  /* Rings sized for side layout */
+  .hero-image-wrapper::before { 
+    width: 280px; 
+    height: 280px; 
+    border-width: 2px;
+  }
+  .hero-image-wrapper::after { 
+    width: 330px; 
+    height: 330px; 
+  }
+  
+  /* Clock ticks */
+  .hero-clock-ticks { 
+    width: 305px; 
+    height: 305px; 
+  }
+  .hero-clock-ticks::before {
+    mask: radial-gradient(transparent 130px, black 131px, black 152px, transparent 153px);
+    -webkit-mask: radial-gradient(transparent 130px, black 131px, black 152px, transparent 153px);
+  }
+  
+  .hero-product-img { max-height: 320px; }
+  
+  /* Show badge on mobile - below product */
+  .hero-badge { 
+    display: block;
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin: -20px auto 0;
+    padding: 10px 25px;
+    width: fit-content;
+    transform: translateX(-50px) translateY(-35px);
+  }
+  .hero-badge-title { font-size: 1.5rem; }
+  .hero-badge-text { font-size: 0.6rem; letter-spacing: 1px; }
+  
+  /* TEMPO headline - left aligned */
+  .hero-tempo { 
+    padding-left: 5px; 
+    align-items: flex-start;
+    gap: 0.1em;
+  }
+  .hero-title.hero-tempo { font-size: 1.65rem; }
+  .hero-content { text-align: left; }
+  
+  /* Stats */
+  .stat-number { font-size: 2.5rem; }
+  .stat-label { font-size: 0.75rem; }
+  
+  /* Process section */
+  .process-step { 
+    flex-direction: column; 
+    text-align: center; 
+    align-items: center; 
+  }
+  .process-step-number { 
+    width: 50px; 
+    height: 50px; 
+    font-size: 1.25rem; 
+  }
+  .process-title { font-size: 2rem; }
+  .process-image { margin-top: 40px; }
+  
+  /* Gallery - single column on mobile */
+  .gallery-grid { 
+    grid-template-columns: 1fr; 
+    gap: 12px; 
+  }
+  .gallery-item.large { 
+    grid-column: span 1; 
+    grid-row: span 1; 
+    aspect-ratio: 16/9; 
+  }
+  .gallery-item { aspect-ratio: 16/9; }
+  
+  /* Services/Features */
+  .service-card { padding: 30px 20px; }
+  .service-icon { width: 60px; height: 60px; font-size: 1.5rem; }
+  
+  .feature-item { padding: 20px 15px; }
+  .feature-number { font-size: 3rem; }
+  
+  /* About section */
+  .about-number { font-size: 3.5rem; }
+  
+  /* CTA */
+  .cta-title { font-size: 2rem; }
+  .cta-text { font-size: 1rem; padding: 0 15px; }
+  
+  /* Testimonials */
+  .testimonial-card { padding: 30px 20px; }
+  .testimonial-quote { font-size: 1rem; }
+  
+  /* Footer */
   .footer-bottom { flex-direction: column; text-align: center; }
   .footer-legal { margin-top: 10px; }
   .footer-legal a { margin: 0 10px; }
+  .footer-logo { height: 50px; }
+  .footer-phone { font-size: 1.25rem; }
+  
+  /* Sections padding */
+  .about-section,
+  .services-section,
+  .features-section,
+  .gallery-section,
+  .testimonials-section { padding: 40px 0; }
+  
+  .section-title { font-size: 1.85rem; }
+  .section-label { font-size: 0.7rem; letter-spacing: 2px; }
 }
+
+/* =========================
+   RESPONSIVE - SMALL MOBILE
+   ========================= */
 @media (max-width: 575px) {
-  /* Keep the diagonal split but reduce visual complexity */
-  .hero::before, .hero::after { inset: -35%; }
+  .hero { padding-top: 90px; }
+  .hero-title.hero-tempo { font-size: 2rem; }
+  .hero-subtitle { font-size: 0.95rem; }
+  
+  .hero-image-wrapper::before { width: 300px; height: 300px; }
+  .hero-image-wrapper::after { width: 350px; height: 350px; }
+  .hero-clock-ticks { width: 325px; height: 325px; }
+  .hero-clock-ticks::before {
+    mask: radial-gradient(transparent 140px, black 141px, black 160px, transparent 161px);
+    -webkit-mask: radial-gradient(transparent 140px, black 141px, black 160px, transparent 161px);
+  }
+  .hero-product-img { max-height: 320px; }
+  
+  .hero-badge { padding: 10px 25px; }
+  .hero-badge-title { font-size: 1.5rem; }
+  
+  .btn-gold, .btn-outline-gold { 
+    padding: 12px 28px; 
+    font-size: 0.85rem; 
+  }
+  
+  .stat-number { font-size: 2rem; }
+  .stat-item { padding: 15px 10px; }
+  
+  .about-number { font-size: 3rem; }
+  
+  .section-title { font-size: 1.65rem; }
+  .cta-title { font-size: 1.75rem; }
+  .process-title { font-size: 1.75rem; }
+  
+  .logo-img { width: 200px; }
 }
 
 /* CSS Carbon Fiber Background */
@@ -520,7 +725,7 @@ img { max-width: 100%; height: auto; display:block; }
                         <a href="#results" class="nav-link-custom">Results</a>
                         <a href="#contact" class="nav-link-custom">Contact</a>
                     </nav>
-                    <a href="#contact" class="btn btn-gold">Get Started</a>
+                    <a href="#" class="btn btn-gold mailto-link" data-type="general">Get Started</a>
                 </div>
                 <div class="menu-toggle d-lg-none" id="menuToggle"><span></span><span></span><span></span></div>
             </div>
@@ -553,7 +758,7 @@ img { max-width: 100%; height: auto; display:block; }
 
                         <p class="hero-subtitle">Tempo Swing is engineered to help golfers of all levels master swing tempo, sequencing, lag and impact precision.</p>
                         <div class="hero-cta">
-                            <a href="#contact" class="btn btn-gold">Contact Sales</a>
+                            <a href="#" class="btn btn-gold mailto-link" data-type="product">Contact Sales</a>
                             <a href="#features" class="btn btn-outline-gold">Learn More</a>
                         </div>
                     </div>
@@ -581,7 +786,7 @@ img { max-width: 100%; height: auto; display:block; }
                     <h2 class="section-title">Master the 3:1 Ratio Used by Tour Pros</h2>
                     <p class="about-text mb-4">Research shows that 97 of the last 100 major champions share one thing in common: a 3:1 backswing-to-downswing tempo ratio. The Tempo Swing trainer provides instant feedback to help you achieve this optimal rhythm.</p>
                     <p class="about-text mb-4">Designed with premium materials and professional-grade feedback, it's the preferred choice for coaches, golf academies, and retailers looking to elevate their training offerings.</p>
-                    <a href="#how-it-works" class="btn btn-gold">See How It Works</a>
+                    <a href="#" class="btn btn-gold mailto-link" data-type="product">See How It Works</a>
                 </div>
                 <div class="col-lg-5 offset-lg-1 fade-up">
                     <div class="row g-4">
@@ -608,7 +813,7 @@ img { max-width: 100%; height: auto; display:block; }
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 fade-up">
-                    <div class="service-card featured">
+                    <div class="service-card">
                         <div class="service-icon"><i class="bi bi-lightning-charge-fill"></i></div>
                         <h3 class="service-title">Enhanced Flex Shaft</h3>
                         <p class="service-text">Real-time feedback on tempo and lag. The specially designed flex shaft responds to your swing, helping you feel the proper sequencing and timing.</p>
@@ -759,7 +964,7 @@ img { max-width: 100%; height: auto; display:block; }
                         <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
                         <p class="testimonial-quote">"Within a week, I could feel the difference in my swing. My drives are longer and straighter than ever. This is the best training aid I've ever used."</p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mike" class="testimonial-avatar">
+                            <div class="testimonial-avatar testimonial-avatar-1"></div>
                             <div><div class="testimonial-name">Mike Henderson</div><div class="testimonial-role">12 Handicap, Florida</div></div>
                         </div>
                     </div>
@@ -769,7 +974,7 @@ img { max-width: 100%; height: auto; display:block; }
                         <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
                         <p class="testimonial-quote">"I've incorporated Tempo Swing into all my lessons. My students see instant improvement in their tempo and timing. A must-have for any serious instructor."</p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="David" class="testimonial-avatar">
+                            <div class="testimonial-avatar testimonial-avatar-2"></div>
                             <div><div class="testimonial-name">David Park</div><div class="testimonial-role">PGA Teaching Professional</div></div>
                         </div>
                     </div>
@@ -779,7 +984,7 @@ img { max-width: 100%; height: auto; display:block; }
                         <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
                         <p class="testimonial-quote">"Finally, a training aid that actually teaches feel. After years of struggling with tempo, I now understand what a proper swing should feel like."</p>
                         <div class="testimonial-author">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah" class="testimonial-avatar">
+                            <div class="testimonial-avatar testimonial-avatar-3"></div>
                             <div><div class="testimonial-name">Sarah Mitchell</div><div class="testimonial-role">18 Handicap, Texas</div></div>
                         </div>
                     </div>
@@ -822,7 +1027,7 @@ img { max-width: 100%; height: auto; display:block; }
             <div class="fade-up">
                 <h2 class="cta-title">Ready to Own Your Swing?</h2>
                 <p class="cta-text">Join thousands of golfers who have transformed their game with Tempo Swing. Contact our sales team for individual and wholesale inquiries.</p>
-                <a href="mailto:Sales@temposwinggolf.com" class="btn btn-dark-custom">Contact Sales</a>
+                <a href="#" class="btn btn-dark-custom mailto-link" data-type="product">Contact Sales</a>
             </div>
         </div>
     </section>
@@ -834,7 +1039,7 @@ img { max-width: 100%; height: auto; display:block; }
                         <img src="logo.png" alt="Tempo Swing" class="footer-logo">
                         <p class="footer-tagline">Engineered to help golfers of all levels master swing tempo, sequencing, lag and impact precision.</p>
                         <div class="footer-phone"><i class="bi bi-telephone-fill"></i>888-333-TEMPO</div>
-                        <a href="mailto:Sales@temposwinggolf.com" class="footer-email">Sales@temposwinggolf.com</a>
+                        <a href="#" class="footer-email mailto-link" data-type="general">info@temposwing.com</a>
                         <div class="footer-socials">
                             <a href="https://facebook.com/temposwinggolf" target="_blank"><i class="bi bi-facebook"></i></a>
                             <a href="https://instagram.com/temposwinggolf" target="_blank"><i class="bi bi-instagram"></i></a>
@@ -855,16 +1060,16 @@ img { max-width: 100%; height: auto; display:block; }
                     <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                         <h4 class="footer-title">For Business</h4>
                         <ul class="footer-links">
-                            <li><a href="#contact">Wholesale Inquiries</a></li>
-                            <li><a href="#contact">Golf Academies</a></li>
-                            <li><a href="#contact">Retail Partners</a></li>
-                            <li><a href="#contact">Coaches</a></li>
+                            <li><a href="#" class="mailto-link" data-type="wholesale">Wholesale Inquiries</a></li>
+                            <li><a href="#" class="mailto-link" data-type="wholesale">Golf Academies</a></li>
+                            <li><a href="#" class="mailto-link" data-type="wholesale">Retail Partners</a></li>
+                            <li><a href="#" class="mailto-link" data-type="wholesale">Coaches</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <h4 class="footer-title">Get In Touch</h4>
                         <p style="color: rgba(255,255,255,0.6); font-size: 0.95rem; margin-bottom: 20px;">Interested in Tempo Swing for yourself, your academy, or your store? We'd love to hear from you.</p>
-                        <a href="mailto:Sales@temposwinggolf.com" class="btn btn-gold">Contact Us</a>
+                        <a href="#" class="btn btn-gold mailto-link" data-type="general">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -885,7 +1090,7 @@ img { max-width: 100%; height: auto; display:block; }
                 if ($(this).scrollTop() > 50) { $('.main-header').addClass('scrolled'); } 
                 else { $('.main-header').removeClass('scrolled'); }
             });
-            $('a[href^="#"]').on('click', function(e) {
+            $('a[href^="#"]').not('.mailto-link').on('click', function(e) {
                 e.preventDefault();
                 const target = $(this.getAttribute('href'));
                 if (target.length) {
@@ -924,6 +1129,42 @@ img { max-width: 100%; height: auto; display:block; }
             }
             $(window).on('scroll', animateCounters);
             animateCounters();
+
+            // Dynamic mailto links with date/time and lead type
+            $('.mailto-link').on('click', function(e) {
+                e.preventDefault();
+                
+                var type = $(this).data('type');
+                var now = new Date();
+                var dateStr = now.toLocaleDateString('en-US', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                });
+                var timeStr = now.toLocaleTimeString('en-US', { 
+                    hour: 'numeric', 
+                    minute: '2-digit',
+                    hour12: true 
+                });
+                
+                var subject, body;
+                
+                switch(type) {
+                    case 'wholesale':
+                        subject = 'Wholesale Inquiry - ' + dateStr + ' ' + timeStr;
+                        body = 'Hi,%0A%0AI am interested in wholesale/business opportunities with Tempo Swing.%0A%0ABusiness Name:%0AContact Name:%0APhone:%0AType (Academy/Retailer/Coach):%0AEstimated Quantity:%0A%0AQuestions/Comments:';
+                        break;
+                    case 'product':
+                        subject = 'Product Inquiry - ' + dateStr + ' ' + timeStr;
+                        body = 'Hi,%0A%0AI am interested in learning more about the Tempo Swing trainer.%0A%0AName:%0APhone:%0ACurrent Handicap:%0A%0AQuestions:';
+                        break;
+                    default:
+                        subject = 'General Inquiry - ' + dateStr + ' ' + timeStr;
+                        body = 'Hi,%0A%0AI would like more information about Tempo Swing.%0A%0AName:%0APhone:%0A%0AHow can we help you?';
+                }
+                
+                window.location.href = 'mailto:info@temposwing.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
+            });
         });
     </script>
 </body>
