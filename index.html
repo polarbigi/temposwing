@@ -9,1076 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-
-/* =========================
-   TEMPO LANDING - FULL CSS
-   (includes sliced hero)
-   ========================= */
-
-:root{
-  --gold: #F8B830;
-  --gold-dim: rgba(248,184,48,0.35);
-  --gold-glow: rgba(248,184,48,0.08);
-
-  --bg: #0B0B0C;
-  --panel: #111113;
-  --card: #16161A;
-  --line: rgba(255,255,255,0.07);
-
-  --text: #F5F5F5;
-  --muted: rgba(245,245,245,0.70);
-
-  --font-display: 'Oswald', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
-
-  /* Back-compat for older rules */
-  --black: #0B0B0C;
-  --darker: #111113;
-  --dark: #16161A;
-  --white: #FFFFFF;
-  --gray: #9A9A9A;
-  --light-gray: #F4F4F4;
-
-  /* =========================
-     IMAGE VARIABLES - EASY TO REPLACE
-     ========================= */
-  --img-logo: url('logo.png');
-  --img-product: url('product.01.png');
-  --img-process-bg: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800');
-  --img-process: url('https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=600&h=750&fit=crop');
-  --img-gallery-1: url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=800&fit=crop');
-  --img-gallery-2: url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=400&h=400&fit=crop');
-  --img-gallery-3: url('https://images.unsplash.com/photo-1592919505780-303950717480?w=400&h=400&fit=crop');
-  --img-gallery-4: url('https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=400&h=400&fit=crop');
-  --img-gallery-5: url('https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=400&h=400&fit=crop');
-  --img-avatar-1: url('https://randomuser.me/api/portraits/men/32.jpg');
-  --img-avatar-2: url('https://randomuser.me/api/portraits/men/45.jpg');
-  --img-avatar-3: url('https://randomuser.me/api/portraits/women/44.jpg');
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; }
-h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
-img { max-width: 100%; height: auto; display:block; }
-
-/* Buttons */
-.btn-gold {
-  background: var(--gold);
-  color: var(--black);
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 14px 36px;
-  border: 2px solid var(--gold);
-  border-radius: 0;
-  transition: all 0.3s ease;
-}
-.btn-gold:hover { background: transparent; color: var(--gold); border-color: var(--gold); }
-
-.btn-outline-gold {
-  background: transparent;
-  color: var(--gold);
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 14px 36px;
-  border: 2px solid var(--gold);
-  border-radius: 0;
-  transition: all 0.3s ease;
-}
-.btn-outline-gold:hover { background: var(--gold); color: var(--black); }
-
-/* Section headings */
-.section-label {
-  font-family: var(--font-display);
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: var(--gold);
-  margin-bottom: 0.75rem;
-}
-.section-title { font-size: 2.75rem; line-height: 1.15; margin-bottom: 1.5rem; color: var(--black); }
-
-/* Light section overrides (white/light-gray backgrounds) */
-.light-section { color: var(--black); }
-.light-section .section-title,
-.light-section h2,
-.light-section h3,
-.light-section h4 { color: var(--black); }
-.light-section p { color: #4a4a4a; }
-.light-section .about-text { color: #4a4a4a; }
-.light-section .feature-title { color: var(--black); }
-.light-section .feature-text { color: #4a4a4a; }
-.light-section .service-title { color: var(--black); }
-.light-section .service-text { color: #5a5a5a; }
-.light-section .testimonial-quote { color: #333; }
-.light-section .testimonial-name { color: var(--black); }
-.light-section .testimonial-role { color: #666; }
-
-/* Header */
-.main-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 15px 0; background: var(--darker); transition: all 0.3s ease; }
-.main-header.scrolled { background: var(--black); box-shadow: 0 2px 20px rgba(0,0,0,0.3); padding: 10px 0; }
-.logo-img { height: auto; width: 280px; }
-.nav-link-custom { font-family: var(--font-display); font-weight: 500; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; color: var(--white); padding: 8px 18px !important; }
-.nav-link-custom:hover { color: var(--gold); }
-
-.menu-toggle { width: 30px; height: 20px; position: relative; cursor: pointer; }
-.menu-toggle span { display: block; width: 100%; height: 2px; background: var(--white); position: absolute; transition: all 0.3s ease; }
-.menu-toggle span:nth-child(1) { top: 0; }
-.menu-toggle span:nth-child(2) { top: 9px; }
-.menu-toggle span:nth-child(3) { bottom: 0; }
-
-/* Mobile menu */
-.mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 350px; height: 100vh; background: var(--darker); z-index: 1001; transition: right 0.4s ease; padding: 80px 30px 30px; }
-.mobile-menu.active { right: 0; }
-.mobile-menu-close { position: absolute; top: 20px; right: 20px; font-size: 1.5rem; color: var(--white); cursor: pointer; }
-.mobile-menu a { display: block; font-family: var(--font-display); font-size: 1.25rem; color: var(--white); padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.mobile-menu a:hover { color: var(--gold); }
-.mobile-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
-.mobile-overlay.active { opacity: 1; visibility: visible; }
-
-/* =========================
-   HERO (SLICED DIAGONAL)
-   ========================= */
-.hero{
-  position: relative;
-  min-height: 65vh;
-  display: flex;
-  align-items: center;
-  padding-top: 80px;
-  overflow: hidden;
-  /* Carbon fiber texture */
-  background:
-    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-    linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-  background-color: #131313;
-  background-size: 20px 20px;
-}
-
-/* Diagonal gold slice - curved edge */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 55%;
-  height: 100%;
-  background: var(--gold);
-  clip-path: polygon(30% 0, 100% 0, 100% 100%, 5% 100%);
-  z-index: 0;
-}
-
-/* Shadow/depth on the diagonal edge - REMOVED */
-
-/* Gold glow overlay */
-.hero::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 80%;
-  height: 200%;
-  background: radial-gradient(ellipse at center, rgba(248,184,48,0.3) 0%, transparent 60%);
-  z-index: 0;
-  pointer-events: none;
-}
-
-
-.hero .container {
-  position: relative;
-  z-index: 2;
-}
-
-.hero-content { position: relative; z-index: 2; }
-.hero-title { color: var(--text); text-shadow: 0 4px 30px rgba(0,0,0,0.8); }
-.hero-subtitle { font-size: 1.15rem; color: var(--muted); margin-bottom: 2rem; max-width: 520px; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-
-.hero-cta { display: flex; gap: 15px; flex-wrap: wrap; }
-
-.hero-image { position: relative; z-index: 2; }
-.hero-image-wrapper { 
-  position: relative; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: translateX(-150px) translateY(-50px);
-}
-
-/* Glowing ring behind product */
-.hero-image-wrapper::before {
-  content: '';
-  position: absolute;
-  width: 675px;
-  height: 675px;
-  border: 3px solid rgba(0,0,0,0.2);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  box-shadow: 
-    0 0 40px rgba(0,0,0,0.15),
-    inset 0 0 40px rgba(0,0,0,0.05);
-}
-
-/* Second outer ring */
-.hero-image-wrapper::after {
-  content: '';
-  position: absolute;
-  width: 780px;
-  height: 780px;
-  border: 1px solid rgba(0,0,0,0.15);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-}
-
-/* Clock ticks - between the rings */
-.hero-clock-ticks {
-  position: absolute;
-  width: 728px;
-  height: 728px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  pointer-events: none;
-  animation: slow-rotate 60s linear infinite;
-}
-
-@keyframes slow-rotate {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-.hero-clock-ticks::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: 
-    repeating-conic-gradient(
-      from 0deg,
-      rgba(0,0,0,0.25) 0deg 0.3deg,
-      transparent 0.3deg 30deg
-    );
-  mask: radial-gradient(transparent 340px, black 341px, black 363px, transparent 364px);
-  -webkit-mask: radial-gradient(transparent 340px, black 341px, black 363px, transparent 364px);
-  border-radius: 50%;
-}
-
-/* Clock ticks - REMOVED */
-
-.hero-product-img { 
-  max-height: 550px; 
-  width: auto; 
-  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.6)) drop-shadow(0 0 40px rgba(248,184,48,0.2));
-  position: relative;
-  z-index: 2;
-  animation: float 4s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-}
-
-/* Product badge - PREMIUM GLASS STYLE */
-.hero-badge { 
-  position: absolute; 
-  bottom: 0%;
-  right: 45%;
-  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(20,20,20,0.9) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: 18px 45px; 
-  border: 2px solid transparent;
-  border-radius: 10px;
-  box-shadow: 
-    0 25px 50px rgba(0,0,0,0.5),
-    0 0 30px rgba(248,184,48,0.3),
-    inset 0 1px 0 rgba(255,255,255,0.1),
-    inset 0 -1px 0 rgba(0,0,0,0.3);
-  z-index: 10;
-  text-align: center;
-  overflow: hidden;
-}
-
-/* Animated gradient border */
-.hero-badge::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, var(--gold), #FFD700, var(--gold), #FFA500, var(--gold));
-  background-size: 400% 400%;
-  border-radius: 14px;
-  z-index: -1;
-  animation: gradient-border 3s ease infinite;
-}
-@keyframes gradient-border {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-/* Inner background to show border */
-.hero-badge::after {
-  content: '';
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  right: 2px;
-  bottom: 2px;
-  background: linear-gradient(135deg, rgba(0,0,0,0.95) 0%, rgba(20,20,20,0.98) 100%);
-  border-radius: 10px;
-  z-index: -1;
-}
-
-/* Shine sweep effect */
-.badge-shine {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-  animation: badge-shine-sweep 3s ease-in-out infinite;
-  z-index: 1;
-}
-@keyframes badge-shine-sweep {
-  0% { left: -100%; }
-  50%, 100% { left: 100%; }
-}
-
-/* Main ratio number */
-.hero-badge-title { 
-  font-family: var(--font-display); 
-  font-size: 3rem; 
-  font-weight: 700; 
-  color: var(--gold); 
-  line-height: 1;
-  text-shadow: 
-    0 0 20px rgba(248,184,48,0.8),
-    0 0 40px rgba(248,184,48,0.4),
-    0 0 60px rgba(248,184,48,0.2);
-  position: relative;
-  z-index: 2;
-  animation: number-glow 2s ease-in-out infinite;
-}
-@keyframes number-glow {
-  0%, 100% { 
-    text-shadow: 
-      0 0 20px rgba(248,184,48,0.8),
-      0 0 40px rgba(248,184,48,0.4),
-      0 0 60px rgba(248,184,48,0.2);
-    transform: scale(1);
-  }
-  50% { 
-    text-shadow: 
-      0 0 30px rgba(248,184,48,1),
-      0 0 60px rgba(248,184,48,0.6),
-      0 0 90px rgba(248,184,48,0.4);
-    transform: scale(1.02);
-  }
-}
-
-/* Decorative elements around the number */
-.badge-decoration {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-.badge-decoration::before,
-.badge-decoration::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--gold);
-  opacity: 0.5;
-}
-.badge-decoration::before {
-  top: 12px;
-  left: 12px;
-  border-right: none;
-  border-bottom: none;
-}
-.badge-decoration::after {
-  bottom: 12px;
-  right: 12px;
-  border-left: none;
-  border-top: none;
-}
-
-/* Subtitle text */
-.hero-badge-text { 
-  font-size: 0.6rem; 
-  color: rgba(255,255,255,0.9); 
-  text-transform: uppercase; 
-  letter-spacing: 3px; 
-  margin-top: 6px;
-  position: relative;
-  z-index: 2;
-}
-
-/* Small label above number */
-.badge-label {
-  font-size: 0.6rem;
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  margin-bottom: 5px;
-  position: relative;
-  z-index: 2;
-  opacity: 0.8;
-}
-
-/* Pulsing ring effect */
-.badge-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 80%;
-  height: 80%;
-  border: 1px solid var(--gold);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  z-index: 0;
-  animation: ring-pulse 2s ease-out infinite;
-}
-.badge-ring:nth-child(2) { animation-delay: 0.5s; }
-.badge-ring:nth-child(3) { animation-delay: 1s; }
-@keyframes ring-pulse {
-  0% { width: 60%; height: 60%; opacity: 0.5; }
-  100% { width: 150%; height: 150%; opacity: 0; }
-}
-
-/* =========================
-   TEMPO ACRONYM HEADLINE
-   ========================= */
-.hero-tempo{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.18em;
-  line-height: 0.98;
-  padding-left: 14px;
-}
-.hero-tempo span {
-  display: block;
-  letter-spacing: -0.5px;
-}
-.hero-tempo .tempo-letter {
-  color: var(--gold);
-  font-weight: 700;
-  text-shadow:
-    0 0 20px rgba(248,184,48,0.6),
-    0 0 40px rgba(248,184,48,0.4),
-    0 0 60px rgba(248,184,48,0.2);
-  position: relative;
-  display: inline-block;
-  width: 0.7em;
-  text-align: center;
-  margin-right: 0.15em;
-  transition: all 0.3s ease;
-  animation: letter-glow 2s ease-in-out infinite;
-  animation-delay: calc(var(--i) * 0.2s);
-}
-
-@keyframes letter-glow {
-  0%, 100% { 
-    text-shadow:
-      0 0 20px rgba(248,184,48,0.6),
-      0 0 40px rgba(248,184,48,0.4),
-      0 0 60px rgba(248,184,48,0.2);
-  }
-  50% { 
-    text-shadow:
-      0 0 30px rgba(248,184,48,0.9),
-      0 0 60px rgba(248,184,48,0.6),
-      0 0 90px rgba(248,184,48,0.4);
-  }
-}
-.hero-tempo .own{ margin-top: 0.28em; }
-
-/* =========================
-   Remaining sections (original)
-   ========================= */
-.about-section { padding: 50px 0; background: var(--white); color: var(--black); }
-.about-number { font-family: var(--font-display); font-size: 5rem; font-weight: 700; color: var(--gold); line-height: 1; }
-.about-number span { font-size: 2rem; }
-.about-text { font-size: 1.05rem; color: #4a4a4a; }
-
-.services-section { padding: 50px 0; background: var(--light-gray); color: var(--black); }
-.service-card { padding: 40px 30px; background: var(--white); border: none; transition: all 0.4s ease; height: 100%; position: relative; overflow: hidden; box-shadow: 0 5px 30px rgba(0,0,0,0.05); }
-.service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
-.service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); background: var(--dark); color: var(--white); }
-.service-card:hover::before { transform: scaleX(1); }
-.service-card:hover .service-icon { background: rgba(248,184,48,0.20); }
-.service-card:hover .service-title { color: var(--white); }
-.service-card:hover .service-text { color: rgba(255,255,255,0.7); }
-.service-icon { width: 70px; height: 70px; background: rgba(248,184,48,0.10); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 25px; font-size: 1.75rem; color: var(--gold); transition: all 0.4s ease; }
-.service-title { font-size: 1.35rem; margin-bottom: 15px; color: var(--black); transition: all 0.4s ease; }
-.service-text { color: #5a5a5a; margin-bottom: 0; font-size: 0.95rem; transition: all 0.4s ease; }
-
-.features-section { padding: 50px 0; background: var(--white); color: var(--black); }
-.feature-item { text-align: center; padding: 30px 20px; }
-.feature-number { font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 20px; position: relative; display: inline-block; }
-.feature-number::after { content: ''; position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background: var(--gold); opacity: 0.3; }
-.feature-title { font-size: 1.15rem; margin-bottom: 12px; color: var(--black); }
-.feature-text { color: #4a4a4a; font-size: 0.9rem; }
-
-.process-section { background: var(--darker); color: var(--white); padding: 50px 0; position: relative; overflow: hidden; }
-.process-section::before { content: ''; position: absolute; right: 0; top: 0; width: 50%; height: 100%; background: var(--img-process-bg) center/cover no-repeat; opacity: 0.15; }
-.process-title { font-size: 3rem; margin-bottom: 1rem; }
-.process-subtitle { color: rgba(255,255,255,0.6); margin-bottom: 3rem; font-size: 1.1rem; }
-.process-step { display: flex; gap: 25px; margin-bottom: 35px; position: relative; }
-.process-step-number { width: 60px; height: 60px; background: var(--gold); color: var(--black); font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.process-step-content h4 { font-size: 1.25rem; margin-bottom: 8px; color: var(--gold); }
-.process-step-content p { color: rgba(255,255,255,0.7); margin: 0; font-size: 0.95rem; }
-.process-image { position: relative; z-index: 2; }
-.process-image img { box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
-
-.gallery-section { padding: 50px 0; background: var(--light-gray); color: var(--black); }
-.gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.gallery-item { position: relative; overflow: hidden; aspect-ratio: 1; background: var(--dark); }
-.gallery-item.large { grid-column: span 2; grid-row: span 2; }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-.gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; opacity: 0; transition: opacity 0.4s ease; }
-.gallery-item:hover img { transform: scale(1.1); }
-.gallery-item:hover .gallery-overlay { opacity: 1; }
-.gallery-title { font-family: var(--font-display); font-size: 1.25rem; color: var(--white); margin-bottom: 5px; }
-.gallery-text { font-size: 0.85rem; color: var(--gold); }
-
-.testimonials-section { padding: 50px 0; background: var(--white); position: relative; color: var(--black); }
-.testimonial-card { background: var(--light-gray); padding: 40px; position: relative; margin-top: 30px; }
-.testimonial-card::before { content: '"'; font-family: Georgia, serif; font-size: 8rem; color: var(--gold); opacity: 0.2; position: absolute; top: -20px; left: 20px; line-height: 1; }
-.testimonial-quote { font-size: 1.15rem; font-style: italic; margin-bottom: 25px; line-height: 1.8; position: relative; z-index: 1; color: #333; }
-.testimonial-author { display: flex; align-items: center; gap: 15px; }
-.testimonial-avatar { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; }
-.testimonial-avatar-1 { background: var(--img-avatar-1) center/cover no-repeat; }
-.testimonial-avatar-2 { background: var(--img-avatar-2) center/cover no-repeat; }
-.testimonial-avatar-3 { background: var(--img-avatar-3) center/cover no-repeat; }
-.testimonial-name { font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 2px; color: var(--black); }
-.testimonial-role { font-size: 0.85rem; color: #666; }
-.testimonial-stars { color: var(--gold); margin-bottom: 15px; }
-
-.stats-section { background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%); color: var(--white); padding: 80px 0; }
-.stat-item { text-align: center; padding: 25px 15px; }
-.stat-number { font-family: var(--font-display); font-size: 4rem; font-weight: 700; color: var(--gold); line-height: 1; display: flex; align-items: flex-start; justify-content: center; }
-.stat-number span { font-size: 1.5rem; margin-left: 3px; }
-.stat-label { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
-
-.cta-section { padding: 50px 0; background: var(--gold); text-align: center; }
-.cta-title { font-size: 3rem; color: var(--black); margin-bottom: 1rem; }
-.cta-text { font-size: 1.15rem; color: rgba(0,0,0,0.7); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; }
-.btn-dark-custom { background: var(--black); color: var(--white); font-family: var(--font-display); font-size: 0.95rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; padding: 16px 40px; border: 2px solid var(--black); border-radius: 0; transition: all 0.3s ease; }
-.btn-dark-custom:hover { background: transparent; color: var(--black); }
-
-.main-footer { background: var(--darker); color: var(--white); padding-top: 80px; }
-.footer-top { padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-.footer-logo { height: 60px; margin-bottom: 20px; }
-.footer-tagline { color: rgba(255,255,255,0.6); font-size: 0.95rem; margin-bottom: 25px; max-width: 280px; }
-.footer-phone { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; margin-bottom: 10px; color: var(--white); }
-.footer-phone i { color: var(--gold); }
-.footer-email { color: var(--gold); font-size: 1rem; }
-.footer-email:hover { color: var(--white); }
-.footer-title { font-size: 1rem; letter-spacing: 2px; margin-bottom: 25px; color: var(--white); }
-.footer-links { list-style: none; padding: 0; margin: 0; }
-.footer-links li { margin-bottom: 12px; }
-.footer-links a { color: rgba(255,255,255,0.6); font-size: 0.9rem; transition: all 0.3s ease; }
-.footer-links a:hover { color: var(--gold); padding-left: 5px; }
-.footer-socials { display: flex; gap: 12px; margin-top: 25px; }
-.footer-socials a { width: 45px; height: 45px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--white); transition: all 0.3s ease; }
-.footer-socials a:hover { background: var(--gold); color: var(--black); }
-.footer-bottom { padding: 25px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
-.footer-copyright { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
-.footer-legal a { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-left: 20px; }
-.footer-legal a:hover { color: var(--gold); }
-
-/* =========================
-   COOL EFFECTS & ANIMATIONS
-   ========================= */
-
-/* Magnetic button effect */
-.btn-gold, .btn-outline-gold, .btn-dark-custom {
-  position: relative;
-  overflow: hidden;
-}
-.btn-gold::after, .btn-outline-gold::after, .btn-dark-custom::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255,255,255,0.2);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-.btn-gold:hover::after, .btn-outline-gold:hover::after, .btn-dark-custom:hover::after {
-  width: 300px;
-  height: 300px;
-}
-
-/* Parallax tilt on service cards */
-.service-card {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-
-/* Glowing border on focus/hover for cards */
-.service-card:hover {
-  box-shadow: 0 20px 50px rgba(0,0,0,0.12), 0 0 30px rgba(248,184,48,0.15);
-}
-
-/* Animated gradient text for section labels */
-.section-label {
-  background: linear-gradient(90deg, var(--gold), #FFD700, var(--gold));
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradient-shift 3s ease infinite;
-}
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% center; }
-  50% { background-position: 200% center; }
-}
-
-/* Staggered fade-in for feature numbers */
-.feature-item:nth-child(1) .feature-number { animation-delay: 0s; }
-.feature-item:nth-child(2) .feature-number { animation-delay: 0.2s; }
-.feature-item:nth-child(3) .feature-number { animation-delay: 0.4s; }
-.feature-number {
-  animation: pulse-gold 2s ease-in-out infinite;
-}
-@keyframes pulse-gold {
-  0%, 100% { text-shadow: 0 0 0 rgba(248,184,48,0); }
-  50% { text-shadow: 0 0 30px rgba(248,184,48,0.5); }
-}
-
-/* Hover lift for testimonial cards */
-.testimonial-card {
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.testimonial-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
-/* Animated stats counter glow */
-.stat-number {
-  text-shadow: 0 0 20px rgba(248,184,48,0.3);
-  transition: text-shadow 0.3s;
-}
-.stat-item:hover .stat-number {
-  text-shadow: 0 0 40px rgba(248,184,48,0.8);
-}
-
-/* Gallery item shine effect */
-.gallery-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
-  transform: skewX(-25deg);
-  z-index: 2;
-  transition: left 0.7s;
-}
-.gallery-item:hover::before {
-  left: 125%;
-}
-
-/* Scroll progress indicator */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--gold), #FFD700);
-  z-index: 9999;
-  transition: width 0.1s;
-}
-
-/* Process step connector line */
-.process-step::after {
-  content: '';
-  position: absolute;
-  left: 30px;
-  top: 60px;
-  width: 2px;
-  height: calc(100% + 35px);
-  background: linear-gradient(to bottom, var(--gold), transparent);
-}
-.process-step:last-child::after {
-  display: none;
-}
-
-/* Animated underline for nav links */
-.nav-link-custom {
-  position: relative;
-}
-.nav-link-custom::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: var(--gold);
-  transition: all 0.3s;
-  transform: translateX(-50%);
-}
-.nav-link-custom:hover::after {
-  width: 80%;
-}
-
-/* CTA section animated background */
-.cta-section {
-  position: relative;
-  overflow: hidden;
-}
-.cta-section::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(0,0,0,0.03) 10px,
-    rgba(0,0,0,0.03) 20px
-  );
-  animation: slide-bg 20s linear infinite;
-}
-@keyframes slide-bg {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 50px); }
-}
-
-/* Logo hover effect */
-.logo-img {
-  transition: transform 0.3s, filter 0.3s;
-}
-.logo-img:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 10px rgba(248,184,48,0.5));
-}
-
-/* Social icons bounce */
-.footer-socials a {
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-.footer-socials a:hover {
-  transform: translateY(-5px) scale(1.1);
-}
-
-/* Smooth reveal for sections */
-.fade-up {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Hero badge bounce on load */
-.hero-badge {
-  animation: badge-pulse 3s ease-in-out infinite, badge-bounce 1s ease-out;
-}
-@keyframes badge-bounce {
-  0% { transform: scale(0); opacity: 0; }
-  50% { transform: scale(1.1); }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-/* Stat label slide up */
-.stat-item:hover .stat-label {
-  transform: translateY(-3px);
-  color: rgba(255,255,255,0.9);
-}
-.stat-label {
-  transition: all 0.3s;
-}
-
-.fade-up { opacity: 0; transform: translateY(40px); transition: all 0.7s ease; }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
-
-/* Responsive */
-/* =========================
-   RESPONSIVE - TABLET & MOBILE
-   ========================= */
-@media (max-width: 991px) {
-  /* Hero - Side by side layout: text left, product right */
-  .hero { 
-    text-align: left; 
-    padding-top: 160px; 
-    padding-bottom: 40px;
-    min-height: auto;
-  }
-  
-  /* Keep diagonal but adjust for mobile */
-  .hero::before {
-    clip-path: polygon(40% 0, 100% 0, 100% 100%, 15% 100%);
-    width: 60%;
-  }
-  
-  .hero::after { display: none; }
-  
-  /* Side by side row */
-  .hero .row { 
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-  }
-  
-  .hero .col-lg-6:first-child {
-    flex: 0 0 55%;
-    max-width: 55%;
-    padding-right: 0;
-  }
-  
-  .hero .col-lg-6:last-child {
-    flex: 0 0 45%;
-    max-width: 45%;
-    padding-left: 0;
-  }
-  
-  .hero-subtitle { 
-    font-size: 0.85rem;
-    padding: 0;
-    margin-bottom: 1.25rem;
-  }
-  
-  .hero-cta { 
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .hero-cta .btn { 
-    padding: 10px 20px;
-    font-size: 0.75rem;
-  }
-  
-  .hero-image { margin-top: 0; }
-  
-  /* Product image floated right */
-  .hero-image-wrapper { 
-    transform: translateX(-50px) translateY(-35px);
-    padding: 0;
-  }
-  
-  /* Rings sized for side layout */
-  .hero-image-wrapper::before { 
-    width: 280px; 
-    height: 280px; 
-    border-width: 2px;
-  }
-  .hero-image-wrapper::after { 
-    width: 330px; 
-    height: 330px; 
-  }
-  
-  /* Clock ticks */
-  .hero-clock-ticks { 
-    width: 305px; 
-    height: 305px; 
-  }
-  .hero-clock-ticks::before {
-    mask: radial-gradient(transparent 130px, black 131px, black 152px, transparent 153px);
-    -webkit-mask: radial-gradient(transparent 130px, black 131px, black 152px, transparent 153px);
-  }
-  
-  .hero-product-img { max-height: 320px; }
-  
-  /* Show badge on mobile - below product */
-  .hero-badge { 
-    display: block;
-    position: relative;
-    bottom: auto;
-    right: auto;
-    margin: -20px auto 0;
-    padding: 20px 40px;
-    width: fit-content;
-    transform: translateX(-50px) translateY(-35px);
-  }
-  .hero-badge-title { font-size: 2.5rem; }
-  .hero-badge-text { font-size: 0.55rem; letter-spacing: 2px; }
-  .badge-label { font-size: 0.5rem; }
-  .badge-decoration::before,
-  .badge-decoration::after { width: 20px; height: 20px; }
-  .badge-decoration::before { top: 10px; left: 10px; }
-  .badge-decoration::after { bottom: 10px; right: 10px; }
-  
-  /* TEMPO headline - left aligned */
-  .hero-tempo { 
-    padding-left: 5px; 
-    align-items: flex-start;
-    gap: 0.1em;
-  }
-  .hero-title.hero-tempo { font-size: 1.65rem; }
-  .hero-content { text-align: left; }
-  
-  /* Stats */
-  .stat-number { font-size: 2.5rem; }
-  .stat-label { font-size: 0.75rem; }
-  
-  /* Process section */
-  .process-step { 
-    flex-direction: column; 
-    text-align: center; 
-    align-items: center; 
-  }
-  .process-step-number { 
-    width: 50px; 
-    height: 50px; 
-    font-size: 1.25rem; 
-  }
-  .process-title { font-size: 2rem; }
-  .process-image { margin-top: 40px; }
-  
-  /* Gallery - single column on mobile */
-  .gallery-grid { 
-    grid-template-columns: 1fr; 
-    gap: 12px; 
-  }
-  .gallery-item.large { 
-    grid-column: span 1; 
-    grid-row: span 1; 
-    aspect-ratio: 16/9; 
-  }
-  .gallery-item { aspect-ratio: 16/9; }
-  
-  /* Services/Features */
-  .service-card { padding: 30px 20px; }
-  .service-icon { width: 60px; height: 60px; font-size: 1.5rem; }
-  
-  .feature-item { padding: 20px 15px; }
-  .feature-number { font-size: 3rem; }
-  
-  /* About section */
-  .about-number { font-size: 3.5rem; }
-  
-  /* CTA */
-  .cta-title { font-size: 2rem; }
-  .cta-text { font-size: 1rem; padding: 0 15px; }
-  
-  /* Testimonials */
-  .testimonial-card { padding: 30px 20px; }
-  .testimonial-quote { font-size: 1rem; }
-  
-  /* Footer */
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .footer-legal { margin-top: 10px; }
-  .footer-legal a { margin: 0 10px; }
-  .footer-logo { height: 50px; }
-  .footer-phone { font-size: 1.25rem; }
-  
-  /* Sections padding */
-  .about-section,
-  .services-section,
-  .features-section,
-  .gallery-section,
-  .testimonials-section { padding: 40px 0; }
-  
-  .section-title { font-size: 1.85rem; }
-  .section-label { font-size: 0.7rem; letter-spacing: 2px; }
-}
-
-/* =========================
-   RESPONSIVE - SMALL MOBILE
-   ========================= */
-@media (max-width: 575px) {
-  .hero { padding-top: 90px; }
-  .hero-title.hero-tempo { font-size: 2rem; }
-  .hero-subtitle { font-size: 0.95rem; }
-  
-  .hero-image-wrapper::before { width: 300px; height: 300px; }
-  .hero-image-wrapper::after { width: 350px; height: 350px; }
-  .hero-clock-ticks { width: 325px; height: 325px; }
-  .hero-clock-ticks::before {
-    mask: radial-gradient(transparent 140px, black 141px, black 160px, transparent 161px);
-    -webkit-mask: radial-gradient(transparent 140px, black 141px, black 160px, transparent 161px);
-  }
-  .hero-product-img { max-height: 320px; }
-  
-  .hero-badge { padding: 10px 25px; }
-  .hero-badge-title { font-size: 1.5rem; }
-  
-  .btn-gold, .btn-outline-gold { 
-    padding: 12px 28px; 
-    font-size: 0.85rem; 
-  }
-  
-  .stat-number { font-size: 2rem; }
-  .stat-item { padding: 15px 10px; }
-  
-  .about-number { font-size: 3rem; }
-  
-  .section-title { font-size: 1.65rem; }
-  .cta-title { font-size: 1.75rem; }
-  .process-title { font-size: 1.75rem; }
-  
-  .logo-img { width: 200px; }
-}
-
-/* CSS Carbon Fiber Background */
-.carbon-bg {
-  background:
-    linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
-    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
-    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
-    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
-    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
-    linear-gradient(#1d1d1d 25%, #1a1a1a 25%, #1a1a1a 50%, transparent 50%, transparent 75%, #242424 75%, #242424);
-  background-color: #131313;
-  background-size: 20px 20px;
-}
-
-    </style>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body class="carbon-bg">
+
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress" id="scrollProgress"></div>
-    
+
+    <!-- Header -->
     <header class="main-header">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
-                <a href="#"><img src="logo.png" alt="Tempo Swing" class="logo-img"></a>
+                <a href="#">
+                    <img src="logo.png" alt="Tempo Swing" class="logo-img">
+                </a>
                 <div class="d-none d-lg-flex align-items-center gap-4">
                     <nav class="d-flex">
                         <a href="#about" class="nav-link-custom">About</a>
@@ -1089,35 +33,41 @@ img { max-width: 100%; height: auto; display:block; }
                     </nav>
                     <a href="#" class="btn btn-gold mailto-link" data-type="general">Get Started</a>
                 </div>
-                <div class="menu-toggle d-lg-none" id="menuToggle"><span></span><span></span><span></span></div>
+                <div class="menu-toggle d-lg-none" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
     <div class="mobile-menu" id="mobileMenu">
-        <div class="mobile-menu-close" id="menuClose"><i class="bi bi-x-lg"></i></div>
+        <div class="mobile-menu-close" id="menuClose">
+            <i class="bi bi-x-lg"></i>
+        </div>
         <a href="#about">About</a>
         <a href="#features">Features</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#results">Results</a>
         <a href="#contact">Contact</a>
     </div>
-    <section class="hero" id="home">
 
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="hero-content fade-up">
-<h1 class="hero-title hero-tempo">
-  <span><span class="tempo-letter" style="--i:0">T</span>rain.</span>
-  <span><span class="tempo-letter" style="--i:1">E</span>xecute.</span>
-  <span><span class="tempo-letter" style="--i:2">M</span>aster.</span>
-  <span><span class="tempo-letter" style="--i:3">P</span>erform.</span>
-  <span><span class="tempo-letter" style="--i:4">O</span>wn Your Swing.</span>
-</h1>
-
-
-
+                        <h1 class="hero-title hero-tempo">
+                            <span><span class="tempo-letter" style="--i:0">T</span>rain.</span>
+                            <span><span class="tempo-letter" style="--i:1">E</span>xecute.</span>
+                            <span><span class="tempo-letter" style="--i:2">M</span>aster.</span>
+                            <span><span class="tempo-letter" style="--i:3">P</span>erform.</span>
+                            <span><span class="tempo-letter" style="--i:4">O</span>wn Your Swing.</span>
+                        </h1>
                         <p class="hero-subtitle">Tempo Swing is engineered to help golfers of all levels master swing tempo, sequencing, lag and impact precision.</p>
                         <div class="hero-cta">
                             <a href="#" class="btn btn-gold mailto-link" data-type="product">Contact Sales</a>
@@ -1146,6 +96,8 @@ img { max-width: 100%; height: auto; display:block; }
             </div>
         </div>
     </section>
+
+    <!-- About Section -->
     <section class="about-section" id="about">
         <div class="container">
             <div class="row align-items-center">
@@ -1171,6 +123,8 @@ img { max-width: 100%; height: auto; display:block; }
             </div>
         </div>
     </section>
+
+    <!-- Services/Features Section -->
     <section class="services-section" id="features">
         <div class="container">
             <div class="row mb-5">
@@ -1182,21 +136,27 @@ img { max-width: 100%; height: auto; display:block; }
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 fade-up">
                     <div class="service-card">
-                        <div class="service-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                        <div class="service-icon">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                        </div>
                         <h3 class="service-title">Enhanced Flex Shaft</h3>
                         <p class="service-text">Real-time feedback on tempo and lag. The specially designed flex shaft responds to your swing, helping you feel the proper sequencing and timing.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 fade-up">
                     <div class="service-card">
-                        <div class="service-icon"><i class="bi bi-shield-check"></i></div>
+                        <div class="service-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
                         <h3 class="service-title">Durable Build Quality</h3>
                         <p class="service-text">Reinforced composite shaft built to withstand thousands of swings. Professional-grade construction ensures consistent performance over time.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 fade-up">
                     <div class="service-card">
-                        <div class="service-icon"><i class="bi bi-people-fill"></i></div>
+                        <div class="service-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
                         <h3 class="service-title">All Skill Levels</h3>
                         <p class="service-text">From beginner to advanced players, the Tempo Swing adapts to help every golfer improve their timing, rhythm, and overall swing consistency.</p>
                     </div>
@@ -1204,6 +164,8 @@ img { max-width: 100%; height: auto; display:block; }
             </div>
         </div>
     </section>
+
+    <!-- Features Numbers Section -->
     <section class="features-section">
         <div class="container">
             <div class="row">
@@ -1231,6 +193,8 @@ img { max-width: 100%; height: auto; display:block; }
             </div>
         </div>
     </section>
+
+    <!-- Process Section -->
     <section class="process-section" id="how-it-works">
         <div class="container">
             <div class="row align-items-center">
@@ -1268,6 +232,8 @@ img { max-width: 100%; height: auto; display:block; }
             </div>
         </div>
     </section>
+
+    <!-- Gallery Section -->
     <section class="gallery-section" id="results">
         <div class="container">
             <div class="row mb-5">
@@ -1318,6 +284,8 @@ img { max-width: 100%; height: auto; display:block; }
             </div>
         </div>
     </section>
+
+    <!-- Testimonials Section -->
     <section class="testimonials-section" id="testimonials">
         <div class="container">
             <div class="row mb-5">
@@ -1329,67 +297,106 @@ img { max-width: 100%; height: auto; display:block; }
             <div class="row g-4">
                 <div class="col-lg-4 fade-up">
                     <div class="testimonial-card">
-                        <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <div class="testimonial-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
                         <p class="testimonial-quote">"Within a week, I could feel the difference in my swing. My drives are longer and straighter than ever. This is the best training aid I've ever used."</p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar testimonial-avatar-1"></div>
-                            <div><div class="testimonial-name">Mike Henderson</div><div class="testimonial-role">12 Handicap, Florida</div></div>
+                            <div>
+                                <div class="testimonial-name">Mike Henderson</div>
+                                <div class="testimonial-role">12 Handicap, Florida</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 fade-up">
                     <div class="testimonial-card">
-                        <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <div class="testimonial-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
                         <p class="testimonial-quote">"I've incorporated Tempo Swing into all my lessons. My students see instant improvement in their tempo and timing. A must-have for any serious instructor."</p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar testimonial-avatar-2"></div>
-                            <div><div class="testimonial-name">David Park</div><div class="testimonial-role">PGA Teaching Professional</div></div>
+                            <div>
+                                <div class="testimonial-name">David Park</div>
+                                <div class="testimonial-role">PGA Teaching Professional</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 fade-up">
                     <div class="testimonial-card">
-                        <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <div class="testimonial-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
                         <p class="testimonial-quote">"Finally, a training aid that actually teaches feel. After years of struggling with tempo, I now understand what a proper swing should feel like."</p>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar testimonial-avatar-3"></div>
-                            <div><div class="testimonial-name">Sarah Mitchell</div><div class="testimonial-role">18 Handicap, Texas</div></div>
+                            <div>
+                                <div class="testimonial-name">Sarah Mitchell</div>
+                                <div class="testimonial-role">18 Handicap, Texas</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Stats Section -->
     <section class="stats-section">
         <div class="container">
             <div class="row">
                 <div class="col-6 col-lg-3 fade-up">
                     <div class="stat-item">
-                        <div class="stat-number"><span class="counter" data-target="97">0</span><span>%</span></div>
+                        <div class="stat-number">
+                            <span class="counter" data-target="97">0</span><span>%</span>
+                        </div>
                         <p class="stat-label">Tour Pro Tempo Match</p>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 fade-up">
                     <div class="stat-item">
-                        <div class="stat-number"><span class="counter" data-target="20">0</span><span>+</span></div>
+                        <div class="stat-number">
+                            <span class="counter" data-target="20">0</span><span>+</span>
+                        </div>
                         <p class="stat-label">Avg. Yards Gained</p>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 fade-up">
                     <div class="stat-item">
-                        <div class="stat-number"><span class="counter" data-target="5000">0</span><span>+</span></div>
+                        <div class="stat-number">
+                            <span class="counter" data-target="5000">0</span><span>+</span>
+                        </div>
                         <p class="stat-label">Happy Golfers</p>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 fade-up">
                     <div class="stat-item">
-                        <div class="stat-number"><span class="counter" data-target="100">0</span><span>+</span></div>
+                        <div class="stat-number">
+                            <span class="counter" data-target="100">0</span><span>+</span>
+                        </div>
                         <p class="stat-label">Golf Academies</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <div class="fade-up">
@@ -1399,6 +406,8 @@ img { max-width: 100%; height: auto; display:block; }
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
     <footer class="main-footer" id="contact">
         <div class="container">
             <div class="footer-top">
@@ -1406,7 +415,9 @@ img { max-width: 100%; height: auto; display:block; }
                     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                         <img src="logo.png" alt="Tempo Swing" class="footer-logo">
                         <p class="footer-tagline">Engineered to help golfers of all levels master swing tempo, sequencing, lag and impact precision.</p>
-                        <div class="footer-phone"><i class="bi bi-telephone-fill"></i>888-333-TEMPO</div>
+                        <div class="footer-phone">
+                            <i class="bi bi-telephone-fill"></i>888-333-TEMPO
+                        </div>
                         <a href="#" class="footer-email mailto-link" data-type="general">info@temposwing.com</a>
                         <div class="footer-socials">
                             <a href="https://facebook.com/temposwinggolf" target="_blank"><i class="bi bi-facebook"></i></a>
@@ -1450,122 +461,11 @@ img { max-width: 100%; height: auto; display:block; }
             </div>
         </div>
     </footer>
+
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(window).scroll(function() {
-                if ($(this).scrollTop() > 50) { $('.main-header').addClass('scrolled'); } 
-                else { $('.main-header').removeClass('scrolled'); }
-            });
-            $('a[href^="#"]').not('.mailto-link').on('click', function(e) {
-                e.preventDefault();
-                const target = $(this.getAttribute('href'));
-                if (target.length) {
-                    $('#mobileMenu').removeClass('active');
-                    $('#mobileOverlay').removeClass('active');
-                    $('html, body').animate({ scrollTop: target.offset().top - 80 }, 800);
-                }
-            });
-            $('#menuToggle').on('click', function() { $('#mobileMenu').addClass('active'); $('#mobileOverlay').addClass('active'); });
-            $('#menuClose, #mobileOverlay').on('click', function() { $('#mobileMenu').removeClass('active'); $('#mobileOverlay').removeClass('active'); });
-            function checkFadeUp() {
-                $('.fade-up').each(function() {
-                    const elementTop = $(this).offset().top;
-                    const viewportBottom = $(window).scrollTop() + $(window).height();
-                    if (elementTop < viewportBottom - 100) { $(this).addClass('visible'); }
-                });
-            }
-            $(window).on('scroll', checkFadeUp);
-            checkFadeUp();
-            function animateCounters() {
-                $('.counter').each(function() {
-                    const $this = $(this);
-                    const target = parseInt($this.data('target'));
-                    if ($this.hasClass('counted')) return;
-                    const elementTop = $this.offset().top;
-                    const viewportBottom = $(window).scrollTop() + $(window).height();
-                    if (elementTop < viewportBottom - 50) {
-                        $this.addClass('counted');
-                        $({ count: 0 }).animate({ count: target }, {
-                            duration: 2000, easing: 'swing',
-                            step: function() { $this.text(Math.floor(this.count).toLocaleString()); },
-                            complete: function() { $this.text(target.toLocaleString()); }
-                        });
-                    }
-                });
-            }
-            $(window).on('scroll', animateCounters);
-            animateCounters();
+    <script src="script.js"></script>
 
-            // Scroll Progress Bar
-            $(window).on('scroll', function() {
-                var scrollTop = $(this).scrollTop();
-                var docHeight = $(document).height() - $(window).height();
-                var scrollPercent = (scrollTop / docHeight) * 100;
-                $('#scrollProgress').css('width', scrollPercent + '%');
-            });
-
-            // Tilt effect on service cards
-            $('.service-card').on('mousemove', function(e) {
-                var rect = this.getBoundingClientRect();
-                var x = e.clientX - rect.left;
-                var y = e.clientY - rect.top;
-                var centerX = rect.width / 2;
-                var centerY = rect.height / 2;
-                var rotateX = (y - centerY) / 20;
-                var rotateY = (centerX - x) / 20;
-                $(this).css('transform', 'translateY(-10px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)');
-            }).on('mouseleave', function() {
-                $(this).css('transform', 'translateY(0) rotateX(0) rotateY(0)');
-            });
-
-            // Magnetic button effect
-            $('.btn-gold, .btn-outline-gold, .btn-dark-custom').on('mousemove', function(e) {
-                var rect = this.getBoundingClientRect();
-                var x = e.clientX - rect.left - rect.width / 2;
-                var y = e.clientY - rect.top - rect.height / 2;
-                $(this).css('transform', 'translate(' + x * 0.1 + 'px, ' + y * 0.1 + 'px)');
-            }).on('mouseleave', function() {
-                $(this).css('transform', 'translate(0, 0)');
-            });
-
-            // Dynamic mailto links with date/time and lead type
-            $('.mailto-link').on('click', function(e) {
-                e.preventDefault();
-                
-                var type = $(this).data('type');
-                var now = new Date();
-                var dateStr = now.toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                });
-                var timeStr = now.toLocaleTimeString('en-US', { 
-                    hour: 'numeric', 
-                    minute: '2-digit',
-                    hour12: true 
-                });
-                
-                var subject, body;
-                
-                switch(type) {
-                    case 'wholesale':
-                        subject = 'Wholesale Inquiry - ' + dateStr + ' ' + timeStr;
-                        body = 'Hi,%0A%0AI am interested in wholesale/business opportunities with Tempo Swing.%0A%0ABusiness Name:%0AContact Name:%0APhone:%0AType (Academy/Retailer/Coach):%0AEstimated Quantity:%0A%0AQuestions/Comments:';
-                        break;
-                    case 'product':
-                        subject = 'Product Inquiry - ' + dateStr + ' ' + timeStr;
-                        body = 'Hi,%0A%0AI am interested in learning more about the Tempo Swing trainer.%0A%0AName:%0APhone:%0ACurrent Handicap:%0A%0AQuestions:';
-                        break;
-                    default:
-                        subject = 'General Inquiry - ' + dateStr + ' ' + timeStr;
-                        body = 'Hi,%0A%0AI would like more information about Tempo Swing.%0A%0AName:%0APhone:%0A%0AHow can we help you?';
-                }
-                
-                window.location.href = 'mailto:info@temposwing.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
-            });
-        });
-    </script>
 </body>
 </html>
