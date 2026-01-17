@@ -109,6 +109,7 @@ $(document).ready(function() {
     // Dynamic mailto links
     $('.mailto-link').on('click', function(e) {
         e.preventDefault();
+        console.log('mailto clicked!', $(this).data('type'));
         
         var type = $(this).data('type');
         var now = new Date();
@@ -128,18 +129,19 @@ $(document).ready(function() {
         switch (type) {
             case 'wholesale':
                 subject = 'Wholesale Inquiry - ' + dateStr + ' ' + timeStr;
-                body = 'Hi,%0A%0AI am interested in wholesale/business opportunities with Tempo Swing.%0A%0ABusiness Name:%0AContact Name:%0APhone:%0AType (Academy/Retailer/Coach):%0AEstimated Quantity:%0A%0AQuestions/Comments:';
+                body = 'Hi,\n\nI am interested in wholesale/business opportunities with Tempo Swing.\n\nBusiness Name:\nContact Name:\nPhone:\nType (Academy/Retailer/Coach):\nEstimated Quantity:\n\nQuestions/Comments:';
                 break;
             case 'product':
                 subject = 'Product Inquiry - ' + dateStr + ' ' + timeStr;
-                body = 'Hi,%0A%0AI am interested in learning more about the Tempo Swing trainer.%0A%0AName:%0APhone:%0ACurrent Handicap:%0A%0AQuestions:';
+                body = 'Hi,\n\nI am interested in learning more about the Tempo Swing trainer.\n\nName:\nPhone:\nCurrent Handicap:\n\nQuestions:';
                 break;
             default:
                 subject = 'General Inquiry - ' + dateStr + ' ' + timeStr;
-                body = 'Hi,%0A%0AI would like more information about Tempo Swing.%0A%0AName:%0APhone:%0A%0AHow can we help you?';
+                body = 'Hi,\n\nI would like more information about Tempo Swing.\n\nName:\nPhone:\n\nHow can we help you?';
         }
         
-        window.location.href = 'mailto:info@temposwing.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
+        var mailtoUrl = 'mailto:info@temposwing.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        window.location.href = mailtoUrl;
     });
     
 });
