@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempo Swing | Master Your Golf Swing Tempo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body class="carbon-bg">
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#">
+                    <img src="logo.png" alt="Tempo Swing" class="logo-img">
+                </a>
+                <div class="d-none d-lg-flex align-items-center gap-4">
+                    <nav class="d-flex">
+                        <a href="#about" class="nav-link-custom">About</a>
+                        <a href="#features" class="nav-link-custom">Features</a>
+                        <a href="#how-it-works" class="nav-link-custom">How It Works</a>
+                        <a href="#results" class="nav-link-custom">Results</a>
+                        <a href="#contact" class="nav-link-custom">Contact</a>
+                    </nav>
+                    <a href="#" class="btn btn-gold mailto-link" data-type="general">Get Started</a>
+                </div>
+                <div class="menu-toggle d-lg-none" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-close" id="menuClose">
+            <i class="bi bi-x-lg"></i>
+        </div>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#results">Results</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content fade-up">
+                        <h1 class="hero-title hero-tempo">
+                            <span><span class="tempo-letter" style="--i:0">T</span>rain.</span>
+                            <span><span class="tempo-letter" style="--i:1">E</span>xecute.</span>
+                            <span><span class="tempo-letter" style="--i:2">M</span>aster.</span>
+                            <span><span class="tempo-letter" style="--i:3">P</span>erform.</span>
+                            <span><span class="tempo-letter" style="--i:4">O</span>wn Your Swing.</span>
+                        </h1>
+                        <p class="hero-subtitle">Your body learns faster than your brain. Tempo Swing builds the muscle memory for a repeatable swing that holds up when it counts.</p>
+                        <div class="hero-cta">
+                            <a href="#" class="btn btn-gold mailto-link" data-type="product">Contact Sales</a>
+                            <a href="#features" class="btn btn-outline-gold">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-image fade-up">
+                        <div class="hero-image-wrapper text-center">
+                            <div class="hero-clock-ticks"></div>
+                            <img src="product.01.png" alt="Tempo Swing Golf Training Aid" class="hero-product-img">
+                        </div>
+                        <div class="hero-badge">
+                            <div class="badge-ring"></div>
+                            <div class="badge-ring"></div>
+                            <div class="badge-ring"></div>
+                            <div class="badge-shine"></div>
+                            <div class="badge-decoration"></div>
+                            <div class="badge-label">Pro Feel</div>
+                            <div class="hero-badge-title">Smooth Power</div>
+                            <div class="hero-badge-text">Connected Motion</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-up">
+                    <span class="section-label">The Science of Rhythm</span>
+                    <h2 class="section-title">Stop Muscling. Start Flowing.</h2>
+                    <p class="about-text mb-4">Watch any tour pro and you'll see it - smooth, effortless, powerful. Now watch most amateurs - rushed, jerky, all arms. The difference isn't strength or talent. It's rhythm.</p>
+                    <p class="about-text mb-4">Tempo Swing trains your nervous system to find that flow, building a swing that repeats under pressure. Designed with premium materials and professional-grade feedback, it's the preferred choice for coaches, golf academies, and serious players looking to level up.</p>
+                    <a href="#" class="btn btn-gold mailto-link" data-type="product">See How It Works</a>
+                </div>
+                <div class="col-lg-5 offset-lg-1 fade-up">
+                    <div class="row g-4">
+                        <div class="col-12 mb-3">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="about-icon"><i class="bi bi-clock-fill"></i></div>
+                                <div>
+                                    <div class="about-number text-stat">5-10<span>min</span></div>
+                                    <p class="about-text mb-0">a day builds lasting rhythm</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="about-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                                <div>
+                                    <div class="about-number text-stat">Effortless</div>
+                                    <p class="about-text mb-0">power under pressure</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services/Features Section -->
+    <section class="services-section" id="features">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-6 fade-up">
+                    <span class="section-label">Why It Works</span>
+                    <h2 class="section-title">Built for Performance</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 fade-up">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                        </div>
+                        <h3 class="service-title">Responsive Flex Shaft</h3>
+                        <p class="service-text">Instant feedback you can feel. The shaft responds to your tempo - smooth swings flow, rushed swings fight back.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 fade-up">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-cpu-fill"></i>
+                        </div>
+                        <h3 class="service-title">Train Your Nervous System</h3>
+                        <p class="service-text">Lessons teach your brain. Tempo Swing teaches your body. Build the muscle memory that holds up under pressure.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 fade-up">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-bullseye"></i>
+                        </div>
+                        <h3 class="service-title">One Tool, Every Golfer</h3>
+                        <p class="service-text">From first-timers to single digits - rhythm is the great equalizer. Find yours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Numbers Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 fade-up">
+                    <div class="feature-item">
+                        <div class="feature-number">01</div>
+                        <h4 class="feature-title">Stop Rushing</h4>
+                        <p class="feature-text">The flex shaft punishes a quick transition. Slow down, sync up, and feel what smooth actually feels like.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 fade-up">
+                    <div class="feature-item">
+                        <div class="feature-number">02</div>
+                        <h4 class="feature-title">Stay Connected</h4>
+                        <p class="feature-text">Arms and body working together - not fighting each other. That's where effortless power lives.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 fade-up">
+                    <div class="feature-item">
+                        <div class="feature-number">03</div>
+                        <h4 class="feature-title">Trust Your Swing</h4>
+                        <p class="feature-text">Build a motion you can repeat under pressure. No swing thoughts. Just confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section" id="how-it-works">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 fade-up">
+                    <span class="section-label">The Method</span>
+                    <h2 class="process-title">Simple Input, Measurable Output</h2>
+                    <p class="process-subtitle">No complexity. No guesswork. Just results you can feel.</p>
+                    <div class="process-step">
+                        <div class="process-step-number">1</div>
+                        <div class="process-step-content">
+                            <h4>Zero Setup</h4>
+                            <p>Grab it like any iron. Your normal grip, your normal stance. Nothing changes except the feedback.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">2</div>
+                        <div class="process-step-content">
+                            <h4>Instant Data</h4>
+                            <p>The shaft doesn't lie. Feel the difference between rushed and smooth in real time.</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="process-step-number">3</div>
+                        <div class="process-step-content">
+                            <h4>Compound Results</h4>
+                            <p>Daily reps build permanent rhythm. The more you train, the more automatic it becomes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 fade-up">
+                    <div class="process-image">
+                        <img src="https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?w=600&h=750&fit=crop" alt="Golfer Training" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="results">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-6 fade-up">
+                    <span class="section-label">Results</span>
+                    <h2 class="section-title">See the Difference</h2>
+                </div>
+                <div class="col-lg-6 d-flex align-items-center justify-content-lg-end fade-up">
+                    <p class="about-text mb-0">Trusted by coaches, academies, and golfers worldwide to deliver measurable improvement.</p>
+                </div>
+            </div>
+            <div class="gallery-grid fade-up">
+                <div class="gallery-item large">
+                    <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&h=800&fit=crop" alt="Golf Course">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Longer Drives</h4>
+                        <span class="gallery-text">Average 20+ yards gained</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=400&h=400&fit=crop" alt="Golf Swing">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Better Contact</h4>
+                        <span class="gallery-text">Consistent ball striking</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1592919505780-303950717480?w=400&h=400&fit=crop" alt="Golf Practice">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Lower Scores</h4>
+                        <span class="gallery-text">Improved consistency</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1611374243147-44a702c2d44c?w=400&h=400&fit=crop" alt="Golf Ball">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Shot Shaping</h4>
+                        <span class="gallery-text">Control your ball flight</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596727362302-b8d891c42ab8?w=400&h=400&fit=crop" alt="Golfer">
+                    <div class="gallery-overlay">
+                        <h4 class="gallery-title">Confidence</h4>
+                        <span class="gallery-text">Trust your swing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center fade-up">
+                    <span class="section-label">Testimonials</span>
+                    <h2 class="section-title">What Golfers Are Saying</h2>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 fade-up">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-quote">"Within a week, I could feel the difference in my swing. My drives are longer and straighter than ever. This is the best training aid I've ever used."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar testimonial-avatar-1"></div>
+                            <div>
+                                <div class="testimonial-name">Mike Henderson</div>
+                                <div class="testimonial-role">12 Handicap, Florida</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 fade-up">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-quote">"I've incorporated Tempo Swing into all my lessons. My students see instant improvement in their tempo and timing. A must-have for any serious instructor."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar testimonial-avatar-2"></div>
+                            <div>
+                                <div class="testimonial-name">David Park</div>
+                                <div class="testimonial-role">PGA Teaching Professional</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 fade-up">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="testimonial-quote">"Finally, a training aid that actually teaches feel. After years of struggling with tempo, I now understand what a proper swing should feel like."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar testimonial-avatar-3"></div>
+                            <div>
+                                <div class="testimonial-name">Sarah Mitchell</div>
+                                <div class="testimonial-role">18 Handicap, Texas</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 col-lg-3 fade-up">
+                    <div class="stat-item">
+                        <div class="stat-number">
+                            <span>5-10</span><span>min</span>
+                        </div>
+                        <p class="stat-label">To Build Lasting Rhythm</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 fade-up">
+                    <div class="stat-item">
+                        <div class="stat-number">
+                            <span>21</span><span>days</span>
+                        </div>
+                        <p class="stat-label">To Form a Habit</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 fade-up">
+                    <div class="stat-item">
+                        <div class="stat-number">
+                            <span>Instant</span>
+                        </div>
+                        <p class="stat-label">Biofeedback</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3 fade-up">
+                    <div class="stat-item">
+                        <div class="stat-number">
+                            <span>Lifetime</span>
+                        </div>
+                        <p class="stat-label">Muscle Memory</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="fade-up">
+                <h2 class="cta-title">Ready to Own Your Swing?</h2>
+                <p class="cta-text">Join thousands of golfers who have transformed their game with Tempo Swing. Contact our sales team for individual and wholesale inquiries.</p>
+                <a href="#" class="btn btn-dark-custom mailto-link" data-type="product">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer" id="contact">
+        <div class="container">
+            <div class="footer-top">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                        <img src="logo.png" alt="Tempo Swing" class="footer-logo">
+                        <p class="footer-tagline">Engineered to help golfers of all levels master swing tempo, sequencing, lag and impact precision.</p>
+                        <div class="footer-phone">
+                            <i class="bi bi-telephone-fill"></i>888-333-TEMPO
+                        </div>
+                        <a href="#" class="footer-email mailto-link" data-type="general">info@temposwing.com</a>
+                        <div class="footer-socials">
+                            <a href="https://facebook.com/temposwinggolf" target="_blank"><i class="bi bi-facebook"></i></a>
+                            <a href="https://instagram.com/temposwinggolf" target="_blank"><i class="bi bi-instagram"></i></a>
+                            <a href="https://tiktok.com/@temposwinggolf" target="_blank"><i class="bi bi-tiktok"></i></a>
+                            <a href="https://youtube.com/@temposwinggolf" target="_blank"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#how-it-works">How It Works</a></li>
+                            <li><a href="#results">Results</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                        <h4 class="footer-title">For Business</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="mailto-link" data-type="wholesale">Wholesale Inquiries</a></li>
+                            <li><a href="#" class="mailto-link" data-type="wholesale">Golf Academies</a></li>
+                            <li><a href="#" class="mailto-link" data-type="wholesale">Retail Partners</a></li>
+                            <li><a href="#" class="mailto-link" data-type="wholesale">Coaches</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <h4 class="footer-title">Get In Touch</h4>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.95rem; margin-bottom: 20px;">Interested in Tempo Swing for yourself, your academy, or your store? We'd love to hear from you.</p>
+                        <a href="#" class="btn btn-gold mailto-link" data-type="general">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2025 Tempo Swing Golf. All rights reserved. | www.temposwinggolf.com</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
