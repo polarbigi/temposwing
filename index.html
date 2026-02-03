@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 </head>
 <body class="carbon-bg">
@@ -69,6 +70,10 @@
                             <span><span class="tempo-letter" style="--i:4">O</span>wn Your Swing.</span>
                         </h1>
                         <p class="hero-subtitle">Your body learns faster than your brain. Tempo Swing builds the muscle memory for a repeatable swing that holds up when it counts.</p>
+                        <div class="hero-price">
+                            <span class="hero-price-label">MSRP</span>
+                            <span class="hero-price-amount">$149.99</span>
+                        </div>
                         <div class="hero-cta">
                             <a href="#" class="btn btn-gold mailto-link" data-type="product">Contact Sales</a>
                             <a href="#features" class="btn btn-outline-gold">Learn More</a>
@@ -94,6 +99,15 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Media Scroller -->
+    <section class="scroller-section">
+        <div class="scroller-wrap">
+            <button class="scroller-arrow scroller-arrow-left" aria-label="Scroll left"><i class="bi bi-chevron-left"></i></button>
+            <div class="scroller-track" id="scrollerTrack"></div>
+            <button class="scroller-arrow scroller-arrow-right" aria-label="Scroll right"><i class="bi bi-chevron-right"></i></button>
         </div>
     </section>
 
@@ -212,21 +226,21 @@
                     <span class="section-label">The Method</span>
                     <h2 class="process-title">Simple Input, Measurable Output</h2>
                     <p class="process-subtitle">No complexity. No guesswork. Just results you can feel.</p>
-                    <div class="process-step">
+                    <div class="process-step" style="--step-delay:0s">
                         <div class="process-step-number">1</div>
                         <div class="process-step-content">
                             <h4>Zero Setup</h4>
                             <p>Grab it like any iron. Your normal grip, your normal stance. Nothing changes except the feedback.</p>
                         </div>
                     </div>
-                    <div class="process-step">
+                    <div class="process-step" style="--step-delay:0.2s">
                         <div class="process-step-number">2</div>
                         <div class="process-step-content">
                             <h4>Instant Data</h4>
                             <p>The shaft doesn't lie. Feel the difference between rushed and smooth in real time.</p>
                         </div>
                     </div>
-                    <div class="process-step">
+                    <div class="process-step" style="--step-delay:0.4s">
                         <div class="process-step-number">3</div>
                         <div class="process-step-content">
                             <h4>Compound Results</h4>
@@ -316,9 +330,9 @@
                         </div>
                         <p class="testimonial-quote">"Within a week, I could feel the difference in my swing. My drives are longer and straighter than ever. This is the best training aid I've ever used."</p>
                         <div class="testimonial-author">
-                            <div class="testimonial-avatar testimonial-avatar-1"></div>
+                            <div class="testimonial-avatar-icon"><i class="bi bi-person-fill"></i></div>
                             <div>
-                                <div class="testimonial-name">Mike Henderson</div>
+                                <div class="testimonial-name">Mike</div>
                                 <div class="testimonial-role">12 Handicap, Florida</div>
                             </div>
                         </div>
@@ -333,11 +347,11 @@
                             <i class="bi bi-star-fill"></i>
                             <i class="bi bi-star-fill"></i>
                         </div>
-                        <p class="testimonial-quote">"I've incorporated Tempo Swing into all my lessons. My students see instant improvement in their tempo and timing. A must-have for any serious instructor."</p>
+                        <p class="testimonial-quote">"I use Tempo Swing in all my lessons. Students see instant improvement in tempo and timing. A must-have for any instructor."</p>
                         <div class="testimonial-author">
-                            <div class="testimonial-avatar testimonial-avatar-2"></div>
+                            <div class="testimonial-avatar-icon"><i class="bi bi-person-fill"></i></div>
                             <div>
-                                <div class="testimonial-name">David Park</div>
+                                <div class="testimonial-name">David</div>
                                 <div class="testimonial-role">PGA Teaching Professional</div>
                             </div>
                         </div>
@@ -354,9 +368,9 @@
                         </div>
                         <p class="testimonial-quote">"Finally, a training aid that actually teaches feel. After years of struggling with tempo, I now understand what a proper swing should feel like."</p>
                         <div class="testimonial-author">
-                            <div class="testimonial-avatar testimonial-avatar-3"></div>
+                            <div class="testimonial-avatar-icon"><i class="bi bi-person-fill"></i></div>
                             <div>
-                                <div class="testimonial-name">Sarah Mitchell</div>
+                                <div class="testimonial-name">Sarah</div>
                                 <div class="testimonial-role">18 Handicap, Texas</div>
                             </div>
                         </div>
@@ -371,34 +385,42 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 col-lg-3 fade-up">
-                    <div class="stat-item">
+                    <div class="stat-item" style="--delay:0s">
+                        <div class="stat-icon"><i class="bi bi-clock"></i></div>
                         <div class="stat-number">
                             <span>5-10</span><span>min</span>
                         </div>
+                        <div class="stat-divider"></div>
                         <p class="stat-label">To Build Lasting Rhythm</p>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 fade-up">
-                    <div class="stat-item">
+                    <div class="stat-item" style="--delay:0.15s">
+                        <div class="stat-icon"><i class="bi bi-calendar-check"></i></div>
                         <div class="stat-number">
                             <span>21</span><span>days</span>
                         </div>
+                        <div class="stat-divider"></div>
                         <p class="stat-label">To Form a Habit</p>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 fade-up">
-                    <div class="stat-item">
+                    <div class="stat-item" style="--delay:0.3s">
+                        <div class="stat-icon"><i class="bi bi-lightning-charge"></i></div>
                         <div class="stat-number">
                             <span>Instant</span>
                         </div>
+                        <div class="stat-divider"></div>
                         <p class="stat-label">Biofeedback</p>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3 fade-up">
-                    <div class="stat-item">
+                    <div class="stat-item" style="--delay:0.45s">
+                        <div class="stat-icon"><i class="bi bi-infinity"></i></div>
                         <div class="stat-number">
                             <span>Lifetime</span>
                         </div>
+                        <div class="stat-divider"></div>
                         <p class="stat-label">Muscle Memory</p>
                     </div>
                 </div>
@@ -425,10 +447,7 @@
                     <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                         <img src="logo.png" alt="Tempo Swing" class="footer-logo">
                         <p class="footer-tagline">Engineered to help golfers of all levels master swing tempo, sequencing, lag and impact precision.</p>
-                        <div class="footer-phone">
-                            <i class="bi bi-telephone-fill"></i>888-333-TEMPO
-                        </div>
-                        <a href="#" class="footer-email mailto-link" data-type="general">info@temposwing.com</a>
+                        <a href="#" class="footer-email mailto-link" data-type="general"><i class="bi bi-envelope-fill"></i>info@temposwing.com</a>
                         <div class="footer-socials">
                             <a href="https://facebook.com/temposwinggolf" target="_blank"><i class="bi bi-facebook"></i></a>
                             <a href="https://instagram.com/temposwinggolf" target="_blank"><i class="bi bi-instagram"></i></a>
@@ -475,6 +494,7 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="script.js"></script>
 
 </body>

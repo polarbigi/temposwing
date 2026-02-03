@@ -106,6 +106,51 @@ $(document).ready(function() {
         $(this).css('transform', 'translate(0, 0)');
     });
     
+    // ── Media scroller ──
+    // Add or remove filenames here — the scroller builds itself
+    var mediaFiles = [
+        'IMG_3046.jpg',
+        '79143818472__62998B3B-11DA-4E08-A47E-2FAE3E73CC85.jpg',
+        '79143820026__06D2E48E-73E5-4095-87B4-B7D956AF0D17.jpg',
+        '79143821987__4E62F116-808D-4E52-BB2A-645F624259C4.jpg',
+        'IMG_1703.mp4',
+        'IMG_1713 (1).mp4',
+        'IMG_3058.mp4',
+        'IMG_3059.mp4',
+        'Pro_Account_Animation_Fix (1).mp4'
+    ];
+
+    var $track = $('#scrollerTrack');
+    mediaFiles.forEach(function(file) {
+        var path = 'media/' + file;
+        var ext = file.split('.').pop().toLowerCase();
+        var isVideo = (ext === 'mp4' || ext === 'webm' || ext === 'mov');
+        var inner = isVideo
+            ? '<video src="' + path + '" muted preload="metadata"></video><div class="scroller-play"><i class="bi bi-play-fill"></i></div>'
+            : '<img src="' + path + '" alt="Tempo Swing">';
+        var cls = 'scroller-item glightbox' + (isVideo ? ' scroller-video' : '');
+        $track.append('<a href="' + path + '" class="' + cls + '" data-gallery="scroller">' + inner + '</a>');
+    });
+
+    // Scroller arrow navigation
+    var scrollAmount = 300;
+    $('.scroller-arrow-left').on('click', function() {
+        var track = $(this).closest('.scroller-wrap').find('.scroller-track');
+        track.animate({ scrollLeft: track.scrollLeft() - scrollAmount }, 300);
+    });
+    $('.scroller-arrow-right').on('click', function() {
+        var track = $(this).closest('.scroller-wrap').find('.scroller-track');
+        track.animate({ scrollLeft: track.scrollLeft() + scrollAmount }, 300);
+    });
+
+    // GLightbox init (after scroller items are built)
+    var lightbox = GLightbox({
+        selector: '.glightbox',
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: true
+    });
+
     // Dynamic mailto links
     $('.mailto-link').on('click', function(e) {
         e.preventDefault();
