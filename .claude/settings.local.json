@@ -2,7 +2,19 @@
   "permissions": {
     "allow": [
       "Bash(dir:*)",
-      "Bash(findstr:*)"
+      "Bash(findstr:*)",
+      "Bash(curl:*)",
+      "Bash(where:*)",
+      "Bash(npx --yes sharp-cli:*)",
+      "Bash(npm install:*)",
+      "Bash(node -e:*)",
+      "Bash(FFMPEG=\"D:/_home/_client/temposwing/node_modules/@ffmpeg-installer/win32-x64/ffmpeg.exe\")",
+      "Bash(\"$FFMPEG\" -i _old/product.vid.mp4 -c:v libx264 -crf 28 -preset medium -c:a aac -b:a 128k -movflags +faststart -y product.vid.mp4)",
+      "Bash(\"$FFMPEG\" -i _old/swing.01.mp4 -c:v libx264 -crf 28 -preset medium -c:a aac -b:a 128k -movflags +faststart -y swing.01.mp4)",
+      "Bash(\"$FFMPEG\" -i _old/swing.02.mp4 -c:v libx264 -crf 28 -preset medium -c:a aac -b:a 128k -movflags +faststart -y swing.02.mp4)",
+      "Bash(\"$FFMPEG\" -i _old/swing.03.mp4 -c:v libx264 -crf 28 -preset medium -c:a aac -b:a 128k -movflags +faststart -y swing.03.mp4)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nvendor libs / optimized assets\n\n- Download external resources locally \\(Bootstrap, jQuery, GLightbox, icons\\)\n- Optimize vendor images \\(28% reduction\\)\n- Compress product.vid.mp4 \\(82% reduction\\)\n- Update HTML/CSS to use local vendor paths\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }
