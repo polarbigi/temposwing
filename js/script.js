@@ -109,6 +109,10 @@ $(document).ready(function() {
     // ── Media scroller ──
     // Add or remove filenames here — the scroller builds itself
     var mediaFiles = [
+        'grip.01.jpg',
+        'grip.02.jpg',
+        'grip.03.jpg',
+        'tempo-product.mp4',
         'IMG_3046.jpg',
         '79143818472__62998B3B-11DA-4E08-A47E-2FAE3E73CC85.jpg',
         '79143820026__06D2E48E-73E5-4095-87B4-B7D956AF0D17.jpg',
@@ -116,8 +120,7 @@ $(document).ready(function() {
         'IMG_1703.mp4',
         'IMG_1713 (1).mp4',
         'IMG_3058.mp4',
-        'IMG_3059.mp4',
-        'Pro_Account_Animation_Fix (1).mp4'
+        'IMG_3059.mp4'
     ];
 
     var $track = $('#scrollerTrack');
